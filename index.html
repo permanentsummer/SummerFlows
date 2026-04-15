@@ -64,9 +64,15 @@
 /* ── trust-line forced single line ── */
 .trust-line {
   white-space: nowrap;
+  font-size: 13px;
 }
-@media(max-width:600px){
-  .trust-line { white-space: normal; text-align: center; }
+.cta-trust {
+  white-space: nowrap !important;
+  font-size: 13px;
+}
+@media(max-width:520px){
+  .trust-line { white-space: normal; text-align: center; font-size: 13px; }
+  .cta-trust { white-space: normal !important; font-size: 13px; }
   .steps { grid-template-columns: 1fr !important; }
   .step-connector { transform: rotate(90deg); display: flex; justify-content: center; }
   .faq-inner { grid-template-columns: 1fr !important; }
@@ -152,17 +158,17 @@
           </div>
           <div class="mockup-filters">
             <span class="mf active">All (8)</span>
-            <span class="mf">🏠 Saramago (4)</span>
-            <span class="mf">🏡 Al-P (4)</span>
+            <span class="mf">🏠 Unit 1 (4)</span>
+            <span class="mf">🏡 Unit 2 (4)</span>
             <span class="mf">🔴 Unpaid</span>
             <span class="mf">Today</span>
           </div>
           <div class="mockup-today">
-            ✅ All clean today! &nbsp; Saramago · Al-Paranaguá
+            ✅ All clean today! &nbsp; Unit 1 · Unit 2
           </div>
           <div class="mockup-card">
             <div class="mc-top">
-              <span class="mc-apt a">🏠 Saramago</span>
+              <span class="mc-apt a">🏠 Unit 1</span>
               <span class="mc-src airbnb">Airbnb</span>
             </div>
             <div class="mc-dates">
@@ -183,7 +189,7 @@
           </div>
           <div class="mockup-card" style="opacity:.7;margin-bottom:12px">
             <div class="mc-top">
-              <span class="mc-apt b">🏡 Al-Paranaguá</span>
+              <span class="mc-apt b">🏡 Unit 2</span>
               <span class="mc-src booking">Booking.com</span>
             </div>
             <div class="mc-dates">
@@ -213,23 +219,22 @@
   <div class="container">
     <p class="logos-label">Works with your booking platforms</p>
     <div class="logos-row">
-      <!-- Airbnb pill with SVG logo -->
-      <div class="platform-logo-pill">
-        <svg width="20" height="20" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M499.3 112.7C353.9 112.7 233.8 240.1 233.8 397.3c0 94.1 60.2 196.9 178.9 305.8 78.3 71.7 157.1 122.5 157.1 122.5s81.1-52.3 158-122.5c118.7-108.9 178.9-211.7 178.9-305.8 0-157.2-119.4-284.6-407.4-284.6z" fill="#FF5A5F"/>
-          <path d="M499.3 200.1c-107.7 0-180.2 79.5-180.2 197.2 0 67.2 43.6 145.2 129.7 232.4 52.6 53.2 107.8 95.2 107.8 95.2s55.3-42.1 106.6-95.2c86.1-87.2 129.7-165.2 129.7-232.4.1-117.7-85.9-197.2-293.6-197.2z" fill="white"/>
-          <path d="M499.5 267.3c-69.6 0-126.1 56.5-126.1 126.1 0 69.6 56.5 126.1 126.1 126.1 69.6 0 126.1-56.5 126.1-126.1 0-69.6-56.5-126.1-126.1-126.1z" fill="#FF5A5F"/>
+      <!-- Airbnb logo only -->
+      <div class="platform-logo-pill" title="Airbnb" style="padding:10px 18px;">
+        <svg width="80" height="26" viewBox="0 0 153 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Airbnb wordmark + belo icon -->
+          <path d="M22.3 4.5C14.1 4.5 7.5 11.4 7.5 20c0 5.8 3.7 12.1 11 18.8 4.8 4.4 9.7 7.5 9.7 7.5s4.9-3.1 9.7-7.5C45.2 32.1 49 25.8 49 20 49 11.4 42.4 4.5 34.3 4.5h-.1C30.7 4.5 28 6.1 26 8.5c-2-2.4-4.7-4-8.1-4h-.1zm3.7 28.6c-2.3-2.1-6.8-6.7-6.8-13.1 0-3.7 3-6.7 6.8-6.7 3.7 0 6.8 3 6.8 6.7 0 6.4-4.6 11-6.8 13.1z" fill="#FF5A5F"/>
+          <text x="58" y="34" font-family="'Circular', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="28" fill="#FF5A5F">airbnb</text>
         </svg>
-        Airbnb
       </div>
-      <!-- Booking.com pill with SVG logo -->
-      <div class="platform-logo-pill">
-        <svg width="22" height="14" viewBox="0 0 220 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="220" height="55" rx="4" fill="#003580"/>
-          <text x="12" y="38" font-family="Arial" font-weight="bold" font-size="32" fill="white">B.</text>
-          <text x="52" y="38" font-family="Arial" font-size="22" fill="white">com</text>
+      <!-- Booking.com logo only -->
+      <div class="platform-logo-pill" title="Booking.com" style="padding:10px 18px;">
+        <svg width="110" height="26" viewBox="0 0 300 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="46" font-family="'GF Halter', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="52" fill="#003580">B</text>
+          <text x="38" y="46" font-family="'GF Halter', 'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="52" fill="#003580">ooking</text>
+          <text x="220" y="46" font-family="'GF Halter', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="52" fill="#003580">.</text>
+          <text x="237" y="46" font-family="'GF Halter', 'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="52" fill="#6BAED6">com</text>
         </svg>
-        Booking.com
       </div>
       <div class="platform-pill">📊 Direct bookings</div>
     </div>
@@ -674,11 +679,6 @@
 
       </div>
       <div class="faq-col">
-
-        <div class="faq-item">
-          <div class="faq-q">What does my cleaner actually see? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a">Your cleaner sees: the apartment name, the check-in date, the check-out date, the number of guests, and any notes you've added (e.g. "baby cot in bedroom 2"). They do not see prices, guest emails, payment information, or your admin panel. The separation is complete and intentional.</div>
-        </div>
 
         <div class="faq-item">
           <div class="faq-q">Can I manage more than one apartment? <span class="faq-arrow">▾</span></div>
