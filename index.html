@@ -90,13 +90,17 @@
   padding: 0 8px;
 }
 .platform-logo-img {
-  height: 28px;
-  width: auto;
+  height: auto;
   object-fit: contain;
   display: block;
 }
-.platform-logo-bare:first-child .platform-logo-img {
-  height: 38px;
+/* Airbnb 3:1 ratio — constrain by width */
+.platform-logo-bare:nth-child(1) .platform-logo-img {
+  width: 110px;
+}
+/* Booking.com 6:1 ratio — needs to be wider to match visual weight */
+.platform-logo-bare:nth-child(2) .platform-logo-img {
+  width: 160px;
 }
 .platform-logo-text {
   font-family: 'Sora', sans-serif;
