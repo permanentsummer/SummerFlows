@@ -8,6 +8,94 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+/* ── Equal-height steps ── */
+.steps {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+.step {
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+}
+.step p { flex: 1; }
+
+/* ── FAQ: fixed-height columns so opening one side doesn't move the other ── */
+.faq-inner {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px !important;
+  align-items: start !important;
+}
+.faq-col { display: flex; flex-direction: column; gap: 16px; }
+.faq-a {
+  display: none;
+  padding: 14px 20px 18px;
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  border-top: 1px solid var(--gray-200);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-steps { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+.faq-steps li {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--gray-600);
+}
+.faq-step-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--yellow);
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── trust-line forced single line ── */
+.trust-line {
+  white-space: nowrap;
+}
+@media(max-width:600px){
+  .trust-line { white-space: normal; text-align: center; }
+  .steps { grid-template-columns: 1fr !important; }
+  .step-connector { transform: rotate(90deg); display: flex; justify-content: center; }
+  .faq-inner { grid-template-columns: 1fr !important; }
+}
+@media(max-width:900px) and (min-width:601px){
+  .steps { grid-template-columns: 1fr auto 1fr !important; }
+  .steps .step:nth-child(6),
+  .steps .step-connector:nth-child(5),
+  .steps .step-connector:nth-child(7) { display: none; }
+}
+
+/* ── platform logos (Airbnb + Booking.com SVG) ── */
+.platform-pill img { height: 18px; vertical-align: middle; margin-right: 6px; }
+.platform-logo-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.platform-logo-pill svg { flex-shrink: 0; }
+
+/* ── payment label clarification in mockup ── */
+.mc-pay-label { font-size: 9px; color: var(--gray-400); display: block; margin-bottom: 2px; font-family: 'Sora', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
+</style>
 </head>
 <body>
 
@@ -15,7 +103,6 @@
 <nav class="navbar">
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <span class="logo-icon">🧹</span>
       <span class="logo-text">SummerClean</span>
     </a>
     <div class="nav-links">
@@ -43,7 +130,7 @@
   <div class="container hero-inner">
     <div class="hero-badge">✨ 100% Free — No credit card required</div>
     <h1 class="hero-title">Cleaning management<br><em>made simple.</em></h1>
-    <p class="hero-sub">For Airbnb hosts, B&Bs & small hotels.<br>Import bookings, track cleanings, and give your cleaner only what they need — via a simple link.</p>
+    <p class="hero-sub">For Airbnb hosts, B&Bs &amp; small hotels.<br>Import bookings, track cleanings, and give your cleaner only what they need — via a simple link.</p>
     <div class="hero-ctas">
       <a href="https://cleaning.permanentsummer.co/" class="btn btn-primary btn-lg" target="_blank">Start Free Now →</a>
       <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
@@ -60,7 +147,7 @@
         </div>
         <div class="mockup-app">
           <div class="mockup-topbar">
-            <span class="mockup-appname">🧹 SummerClean</span>
+            <span class="mockup-appname">SummerClean</span>
             <span class="mockup-sync">🔄</span>
           </div>
           <div class="mockup-filters">
@@ -85,7 +172,10 @@
             </div>
             <div class="mc-footer">
               <span class="mc-guests">👥 3 guests</span>
-              <button class="mc-pay paid">✅ Paid</button>
+              <div>
+                <span class="mc-pay-label">Cleaner payment</span>
+                <button class="mc-pay paid">✅ Paid</button>
+              </div>
             </div>
             <div class="mockup-clean-status">
               <button class="mcs-btn cleaned">✓ Cleaned</button>
@@ -103,7 +193,10 @@
             </div>
             <div class="mc-footer">
               <span class="mc-guests">👥 2 guests</span>
-              <button class="mc-pay unpaid">❌ Unpaid</button>
+              <div>
+                <span class="mc-pay-label">Cleaner payment</span>
+                <button class="mc-pay unpaid">❌ Unpaid</button>
+              </div>
             </div>
             <div class="mockup-clean-status">
               <button class="mcs-btn dirty">Not cleaned yet</button>
@@ -120,11 +213,25 @@
   <div class="container">
     <p class="logos-label">Works with your booking platforms</p>
     <div class="logos-row">
-      <div class="platform-pill">🏠 Airbnb</div>
-      <div class="platform-pill">📋 Booking.com</div>
-      <div class="platform-pill">🔗 Pingotel</div>
+      <!-- Airbnb pill with SVG logo -->
+      <div class="platform-logo-pill">
+        <svg width="20" height="20" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M499.3 112.7C353.9 112.7 233.8 240.1 233.8 397.3c0 94.1 60.2 196.9 178.9 305.8 78.3 71.7 157.1 122.5 157.1 122.5s81.1-52.3 158-122.5c118.7-108.9 178.9-211.7 178.9-305.8 0-157.2-119.4-284.6-407.4-284.6z" fill="#FF5A5F"/>
+          <path d="M499.3 200.1c-107.7 0-180.2 79.5-180.2 197.2 0 67.2 43.6 145.2 129.7 232.4 52.6 53.2 107.8 95.2 107.8 95.2s55.3-42.1 106.6-95.2c86.1-87.2 129.7-165.2 129.7-232.4.1-117.7-85.9-197.2-293.6-197.2z" fill="white"/>
+          <path d="M499.5 267.3c-69.6 0-126.1 56.5-126.1 126.1 0 69.6 56.5 126.1 126.1 126.1 69.6 0 126.1-56.5 126.1-126.1 0-69.6-56.5-126.1-126.1-126.1z" fill="#FF5A5F"/>
+        </svg>
+        Airbnb
+      </div>
+      <!-- Booking.com pill with SVG logo -->
+      <div class="platform-logo-pill">
+        <svg width="22" height="14" viewBox="0 0 220 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="220" height="55" rx="4" fill="#003580"/>
+          <text x="12" y="38" font-family="Arial" font-weight="bold" font-size="32" fill="white">B.</text>
+          <text x="52" y="38" font-family="Arial" font-size="22" fill="white">com</text>
+        </svg>
+        Booking.com
+      </div>
       <div class="platform-pill">📊 Direct bookings</div>
-      <div class="platform-pill">🇬🇧 EN &nbsp;·&nbsp; 🇫🇷 FR &nbsp;·&nbsp; 🇵🇹 PT</div>
     </div>
   </div>
 </section>
@@ -171,9 +278,9 @@
       <h2 class="section-title">Everything your cleaner needs.<br><span class="highlight">Nothing they don't.</span></h2>
       <p class="section-sub">Import your bookings from Airbnb or Booking.com. SummerClean organises them by apartment and checkout date, and gives your cleaner a clean, simple view — no login, no app to install, just a link.</p>
       <ul class="solution-list">
-        <li>✅ Import from Airbnb, Booking.com, Pingotel or direct</li>
+        <li>✅ Import from Airbnb, Booking.com or direct</li>
         <li>✅ Cleaner sees: check-in, check-out, guests, notes</li>
-        <li>✅ Admin sees: everything + payments + clean status</li>
+        <li>✅ Admin sees: everything + whether cleaner is paid + clean status</li>
         <li>✅ Today's banner turns green when all apartments are cleaned</li>
         <li>✅ Works on any phone — no install needed</li>
       </ul>
@@ -184,18 +291,18 @@
         <div class="role-block admin">
           <div class="role-label">👤 You (Admin)</div>
           <div class="role-items">
-            <div class="role-item">📅 All bookings — list & calendar</div>
+            <div class="role-item">📅 All bookings — list &amp; calendar</div>
             <div class="role-item">🏠 Filter by apartment</div>
-            <div class="role-item">💶 Payment status (paid / unpaid)</div>
+            <div class="role-item">💶 Did I pay the cleaner? (paid / unpaid)</div>
             <div class="role-item">✅ Clean status per booking</div>
-            <div class="role-item">✏️ Add, edit & delete bookings</div>
+            <div class="role-item">✏️ Add, edit &amp; delete bookings</div>
             <div class="role-item">📥 Import CSV / XLS files</div>
-            <div class="role-item">⚙️ Settings & cleaner PIN</div>
+            <div class="role-item">⚙️ Settings &amp; cleaner PIN</div>
           </div>
         </div>
         <div class="role-divider">🔐 PIN-Protected Access</div>
         <div class="role-block cleaner">
-          <div class="role-label">🧹 Your Cleaner</div>
+          <div class="role-label">Your Cleaner</div>
           <div class="role-items">
             <div class="role-item">📥 Check-in date</div>
             <div class="role-item">📤 Check-out date</div>
@@ -215,7 +322,7 @@
   <div class="container">
     <div class="section-tag">How it works</div>
     <h2 class="section-title">Up and running in <span class="highlight">under 5 minutes.</span></h2>
-    <p class="section-sub">No onboarding call. No setup fee. No technical knowledge needed. Just follow these four steps.</p>
+    <p class="section-sub" style="margin:0 auto 56px;">No onboarding call. No setup fee. No technical knowledge needed.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
@@ -267,8 +374,8 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon">📥</div>
-        <h3>CSV & XLS import</h3>
-        <p>Import directly from Airbnb, Booking.com and Pingotel. Duplicates are resolved automatically — platform bookings always win over direct conflicts.</p>
+        <h3>CSV &amp; XLS import</h3>
+        <p>Import directly from Airbnb, Booking.com or as a direct booking. Duplicates are resolved automatically — platform bookings always take priority.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">✅</div>
@@ -277,13 +384,13 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon">💶</div>
-        <h3>Payment tracking</h3>
-        <p>Mark cleanings as paid or unpaid. Filter unpaid bookings instantly across all properties. One tap to update — no spreadsheet needed.</p>
+        <h3>Cleaner payment tracking</h3>
+        <p>Track whether you've paid your cleaner for each job — mark as paid or unpaid with one tap. Filter unpaid bookings instantly across all properties.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔐</div>
         <h3>PIN-protected cleaner access</h3>
-        <p>Your cleaner gets a unique link and a 4-digit PIN — that's it. No account, no password to remember, no app to download. They open the link and start working.</p>
+        <p>Your cleaner gets a unique link and a 4-digit PIN — that's it. No account, no password to remember, no app to download.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📝</div>
@@ -293,75 +400,12 @@
       <div class="feature-card">
         <div class="feature-icon">🌍</div>
         <h3>3 languages</h3>
-        <p>Switch between Portuguese, English and French in one tap. Perfect for hosts with international cleaning teams or multi-country properties.</p>
+        <p>Switch between Portuguese, English and French in one tap. Perfect for hosts with international cleaning teams.</p>
       </div>
       <div class="feature-card feature-card-highlight">
         <div class="feature-icon">💬</div>
-        <h3>WhatsApp quick-contact <span class="coming-soon">Coming soon</span></h3>
-        <p>A floating WhatsApp button lets cleaners reach you instantly. Configured once in settings, always available from the cleaner view.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ CLEANER VIEW ═══════════════════════════════ -->
-<section class="cleaner-section">
-  <div class="container cleaner-inner">
-    <div class="cleaner-visual">
-      <div class="cleaner-phone">
-        <div class="cp-bar">
-          <span>🧹 SummerClean</span>
-          <span style="font-size:11px;opacity:.6">Cleaner view</span>
-        </div>
-        <div class="cp-banner">🧹 1 cleaning today · Saramago</div>
-        <div class="cp-card">
-          <div class="cpc-top">
-            <span class="mc-apt a">🏠 Saramago</span>
-            <span class="mc-src airbnb">Airbnb</span>
-          </div>
-          <div class="cpc-row">
-            <div class="cpc-block">
-              <span class="cpc-lbl">CHECK-IN</span>
-              <span class="cpc-val">12 Apr</span>
-              <span class="cpc-day">Saturday</span>
-            </div>
-            <div class="cpc-arrow">→</div>
-            <div class="cpc-block right">
-              <span class="cpc-lbl">CHECK-OUT</span>
-              <span class="cpc-val">19 Apr</span>
-              <span class="cpc-day">Saturday</span>
-            </div>
-          </div>
-          <div class="cpc-guests">👥 3 guests</div>
-          <div class="cpc-notes">📝 Baby cot needed in bedroom 2</div>
-          <button class="cpc-pay unpaid">❌ Cleaning payment: Unpaid</button>
-        </div>
-        <div class="cp-wa">💬</div>
-      </div>
-    </div>
-    <div class="cleaner-text">
-      <div class="section-tag">Designed for cleaners</div>
-      <h2 class="section-title">Your cleaner doesn't need<br><span class="highlight">a smartphone course.</span></h2>
-      <p class="section-sub">SummerClean's cleaner view is designed for people who are not comfortable with apps or technology. Big text. Clear layout. One tap to mark a job done. No training, no login, no confusion.</p>
-      <div class="cleaner-proof">
-        <div class="proof-item">
-          <span class="proof-icon">👁️</span>
-          <div>
-            <strong>They see:</strong> Check-in date, check-out date, guests, your notes
-          </div>
-        </div>
-        <div class="proof-item">
-          <span class="proof-icon">🚫</span>
-          <div>
-            <strong>They don't see:</strong> Prices, guest emails, booking IDs, your admin view
-          </div>
-        </div>
-        <div class="proof-item">
-          <span class="proof-icon">📱</span>
-          <div>
-            <strong>How to share:</strong> Send them one link via WhatsApp. They open it, enter their PIN. Done — forever.
-          </div>
-        </div>
+        <h3>WhatsApp notifications <span class="coming-soon">Coming soon</span></h3>
+        <p>Auto-send booking details to your cleaner via WhatsApp when a new booking arrives. No manual messaging ever again.</p>
       </div>
     </div>
   </div>
@@ -372,9 +416,8 @@
   <div class="container">
     <div class="section-tag">Case studies</div>
     <h2 class="section-title">Real hosts. <span class="highlight">Real results.</span></h2>
-    <p class="section-sub">Here's how three different types of hosts use SummerClean to take the chaos out of cleaning coordination.</p>
+    <p class="section-sub">How three different types of hosts use SummerClean to take the chaos out of cleaning coordination.</p>
     <div class="cases-grid">
-
       <div class="case-card">
         <div class="case-header">
           <div class="case-icon">🏡</div>
@@ -394,7 +437,6 @@
           </div>
         </div>
       </div>
-
       <div class="case-card">
         <div class="case-header">
           <div class="case-icon">🏘️</div>
@@ -414,7 +456,6 @@
           </div>
         </div>
       </div>
-
       <div class="case-card">
         <div class="case-header">
           <div class="case-icon">🌴</div>
@@ -434,7 +475,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -496,10 +536,10 @@
       <ul class="pricing-list">
         <li>✅ Unlimited bookings</li>
         <li>✅ Unlimited apartments</li>
-        <li>✅ CSV & XLS import (Airbnb, Booking.com, Pingotel)</li>
+        <li>✅ CSV &amp; XLS import (Airbnb, Booking.com, Direct)</li>
         <li>✅ Calendar + list view</li>
         <li>✅ Clean status tracking per booking</li>
-        <li>✅ Payment tracking (paid / unpaid)</li>
+        <li>✅ Cleaner payment tracking (paid / unpaid)</li>
         <li>✅ PIN-protected cleaner access</li>
         <li>✅ Multi-language (EN / FR / PT)</li>
         <li>✅ Cloud sync — works on any device</li>
@@ -558,59 +598,119 @@
   <div class="container">
     <div class="section-tag">FAQ</div>
     <h2 class="section-title">Common <span class="highlight">questions.</span></h2>
-    <p class="section-sub">If you're not sure how something works, the answer is probably here. Still unsure? Open the app — it only takes two minutes to see for yourself.</p>
+    <p class="section-sub">If you're not sure how something works, the answer is probably here.</p>
+    <!-- Two independent columns so one opening doesn't shift the other -->
     <div class="faq-inner">
+      <div class="faq-col">
 
-      <div class="faq-item">
-        <div class="faq-q">What exactly is SummerClean? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">SummerClean is a simple web app that helps holiday rental hosts manage their cleaning schedule. You import your bookings from Airbnb or Booking.com, and the app organises them by apartment and checkout date. Your cleaner gets a separate, simplified view via a private link — they don't need an account or any technical knowledge.</div>
+        <div class="faq-item">
+          <div class="faq-q">What exactly is SummerClean? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">SummerClean is a simple web app that helps holiday rental hosts manage their cleaning schedule. You import your bookings from Airbnb or Booking.com, and the app organises them by apartment and checkout date. Your cleaner gets a separate, simplified view via a private link — they don't need an account or any technical knowledge.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Does my cleaner need to create an account? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">No. Your cleaner never needs an email address, a password, or an account of any kind. You share a unique link with them (via WhatsApp, for example), and they access it using a simple 4-digit PIN that you set in Settings. They bookmark the link and use it from then on.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">My cleaner is not good with technology. Will they manage? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">Yes — this is exactly who SummerClean is designed for. The cleaner view has large text, clear dates, and a single button to mark a cleaning as done. There are no menus, no settings, no confusing screens. Hosts consistently report that their cleaners figured it out in under two minutes without any explanation.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How to import bookings from Airbnb <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">
+            <strong>Step 1 — Export from Airbnb:</strong>
+            <ul class="faq-steps">
+              <li><span class="faq-step-num">1</span> Go to airbnb.com and log in to your host account</li>
+              <li><span class="faq-step-num">2</span> Click your profile photo → <em>Switch to hosting</em></li>
+              <li><span class="faq-step-num">3</span> Go to <em>Reservations</em> in the top menu</li>
+              <li><span class="faq-step-num">4</span> Click <em>Export to CSV</em> (top-right corner)</li>
+              <li><span class="faq-step-num">5</span> Save the file to your device</li>
+            </ul>
+            <strong style="display:block;margin-top:12px;">Step 2 — Import into SummerClean:</strong>
+            <ul class="faq-steps">
+              <li><span class="faq-step-num">6</span> Open SummerClean and go to the Import screen</li>
+              <li><span class="faq-step-num">7</span> Select <em>Airbnb</em> as the source</li>
+              <li><span class="faq-step-num">8</span> Upload the CSV file — bookings appear instantly</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How to import bookings from Booking.com <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">
+            <strong>Step 1 — Export from Booking.com:</strong>
+            <ul class="faq-steps">
+              <li><span class="faq-step-num">1</span> Log in to your Booking.com extranet account</li>
+              <li><span class="faq-step-num">2</span> Go to <em>Reservations</em> in the top navigation</li>
+              <li><span class="faq-step-num">3</span> Set the date range for the reservations you want</li>
+              <li><span class="faq-step-num">4</span> Click <em>Download reservations</em> → choose CSV or Excel</li>
+              <li><span class="faq-step-num">5</span> Save the file to your device</li>
+            </ul>
+            <strong style="display:block;margin-top:12px;">Step 2 — Import into SummerClean:</strong>
+            <ul class="faq-steps">
+              <li><span class="faq-step-num">6</span> Open SummerClean and go to the Import screen</li>
+              <li><span class="faq-step-num">7</span> Select <em>Booking.com</em> as the source</li>
+              <li><span class="faq-step-num">8</span> Upload the file — bookings appear instantly</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How to add direct bookings <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">Direct bookings (from your own website, phone calls, or other channels) are added manually in SummerClean:
+            <ul class="faq-steps" style="margin-top:10px;">
+              <li><span class="faq-step-num">1</span> Tap the <strong>+</strong> button (bottom-right of the app)</li>
+              <li><span class="faq-step-num">2</span> Select your apartment and set the source to <em>Direct</em></li>
+              <li><span class="faq-step-num">3</span> Enter the check-in date, check-out date, and number of guests</li>
+              <li><span class="faq-step-num">4</span> Add any notes for your cleaner (optional)</li>
+              <li><span class="faq-step-num">5</span> Tap Save — the booking appears immediately</li>
+            </ul>
+            <p style="margin-top:10px;font-size:14px;">If the same guest also appears on a platform, the platform booking takes priority automatically — no duplicates.</p>
+          </div>
+        </div>
+
       </div>
+      <div class="faq-col">
 
-      <div class="faq-item">
-        <div class="faq-q">Does my cleaner need to create an account? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">No. Your cleaner never needs an email address, a password, or an account of any kind. You share a unique link with them (via WhatsApp, for example), and they access it using a simple 4-digit PIN that you set in Settings. That's it — they bookmark the link and use it from then on.</div>
+        <div class="faq-item">
+          <div class="faq-q">What does my cleaner actually see? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">Your cleaner sees: the apartment name, the check-in date, the check-out date, the number of guests, and any notes you've added (e.g. "baby cot in bedroom 2"). They do not see prices, guest emails, payment information, or your admin panel. The separation is complete and intentional.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Can I manage more than one apartment? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">Yes. There's no limit on apartments. Each property gets its own colour and short name, and you can filter the booking list or calendar by individual apartment. The booking count per property is always visible in the filter bar.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What is the "cleaned" status and how does it work? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">Each booking has a cleaned / not cleaned toggle. Your cleaner (or you) taps it once the apartment is ready for the next guest. On your admin view, the daily status banner turns green the moment every today checkout has been marked as cleaned — so you know at a glance whether everything is done, even if you're not physically there.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What does "paid / unpaid" mean? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">Paid / unpaid is for <strong>you</strong>, not for the guest. It tracks whether you have paid your cleaner for that particular cleaning job. When a cleaning is marked as done, you can flip the toggle to "paid" once you've settled up with them. It's a simple way to keep track without a separate spreadsheet.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is it really free? What's the catch? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">It is genuinely free. SummerClean was built by a host who needed it for their own properties. There's no freemium model, no locked features, no trial period, and no credit card required. The full product is available to everyone at no cost. Future optional features (like WhatsApp automation) may be paid add-ons, but everything that exists today will remain free.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Does it work on a phone? Do I need to install anything? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">SummerClean is a web app — it opens in any browser on any device. Nothing to install. It is designed specifically for phones: large buttons, simple navigation, and a layout that works on small screens. Your cleaner can bookmark the link on their phone's home screen and it behaves like a normal app.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">My cleaner doesn't speak English. Is that a problem? <span class="faq-arrow">▾</span></div>
+          <div class="faq-a">Not at all. SummerClean is available in English, French and Portuguese. Language can be switched in one tap from anywhere in the app — both the admin view and the cleaner view support all three languages.</div>
+        </div>
+
       </div>
-
-      <div class="faq-item">
-        <div class="faq-q">My cleaner is not good with technology. Will they manage? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Yes — this is exactly who SummerClean is designed for. The cleaner view has large text, clear dates, and a single button to mark a cleaning as done. There are no menus, no settings, no confusing screens. Hosts consistently report that their cleaners figured it out in under two minutes without any explanation.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How do I import my bookings? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Go to your Airbnb or Booking.com account and export your reservations as a CSV or Excel file. Then open SummerClean, tap the Import button, and upload the file. The app reads the dates, apartment names, and guest counts automatically. Duplicate bookings across platforms are resolved automatically — no double entries.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What does my cleaner actually see? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Your cleaner sees: the apartment name, the check-in date, the check-out date, the number of guests, and any notes you've added (e.g. "baby cot in bedroom 2"). They do not see prices, guest emails, payment information, or your admin panel. The separation is complete and intentional.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Can I manage more than one apartment? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Yes. There's no limit on apartments. Each property gets its own colour and short name, and you can filter the booking list or calendar by individual apartment. The booking count per property is always visible in the filter bar.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What is the "cleaned" status and how does it work? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Each booking has a cleaned / not cleaned toggle. Your cleaner (or you) taps it once the apartment is ready for the next guest. On your admin view, the daily status banner turns green the moment every today checkout has been marked as cleaned — so you know at a glance whether everything is done, even if you're not physically there.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Is it really free? What's the catch? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">It is genuinely free. SummerClean was built by a host who needed it for their own properties. There's no freemium model, no locked features, no trial period, and no credit card required. The full product is available to everyone at no cost. Future paid features (like WhatsApp automation) may be offered as optional add-ons, but everything that exists today will remain free.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Does it work on a phone? Do I need to install anything? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">SummerClean is a web app — it opens in any browser, on any device. There is nothing to install. It is designed specifically for phones: large buttons, simple navigation, and a layout that works well on small screens. Your cleaner can bookmark the link on their phone's home screen and it behaves like a regular app.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">My cleaner doesn't speak English. Is that a problem? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Not at all. SummerClean is available in English, French and Portuguese. Language can be switched in one tap from anywhere in the app — both the admin view and the cleaner view support all three languages.</div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -630,7 +730,6 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <span class="logo-icon">🧹</span>
       <span class="logo-text">SummerClean</span>
     </div>
     <p class="footer-copy">© 2026 Permanent Summer – SummerClean. Built with ☀️ in Portugal.</p>
@@ -658,14 +757,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// FAQ accordion
+// FAQ accordion — each column independent, no cross-column shifting
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', function() {
     const item = this.closest('.faq-item');
+    const col = this.closest('.faq-col');
     const isOpen = item.classList.contains('open');
-    // close all
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    // open this one if it was closed
+    // Close all items in same column only
+    col.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   });
 });
