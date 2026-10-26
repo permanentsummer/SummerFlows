@@ -305,9 +305,10 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .faq-a-inner{padding:0 24px 20px;font-size:14px;color:var(--text-muted);line-height:1.7;font-family:'Inter',sans-serif}
 
 /* ═══ BOOK A CALL ═══ */
-.book-call{padding:80px 0 60px;background:#fff}
+.book-call{padding:80px 0 60px;background:#fff;overflow-x:hidden;}
 .calendly-wrap{max-width:680px;margin:0 auto;overflow:hidden;height:460px;}
-.calendly-wrap .calendly-inline-widget{margin-top:-90px;width:100%;height:580px;min-width:unset!important;}
+.calendly-wrap .calendly-inline-widget{margin-top:-90px!important;width:100%!important;min-width:0!important;height:580px!important;}
+.calendly-wrap .calendly-inline-widget iframe{width:100%!important;min-width:0!important;}
 
 /* ═══ FINAL CTA ═══ */
 .final-cta{padding:100px 0;background:linear-gradient(135deg,#fff 0%,var(--terra-light) 100%);text-align:center;position:relative;overflow:hidden}
@@ -850,7 +851,7 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
       <p class="section-sub" data-en="Questions about SummerFlow? Want a walkthrough or help getting set up? Pick a time that works." data-fr="Des questions sur SummerFlow ? Vous voulez une démo ou de l'aide pour démarrer ? Choisissez un créneau." data-pt="Dúvidas sobre o SummerFlow? Quer uma demonstração ou ajuda para começar? Escolha um horário.">Questions about SummerFlow? Want a walkthrough or help getting set up? Pick a time that works.</p>
     </div>
     <div class="calendly-wrap reveal">
-      <div class="calendly-inline-widget" data-url="https://calendly.com/permanentsummer/30min?primary_color=b8663f&text_color=1b2a41&background_color=ffffff&hide_event_type_details=1&hide_gdpr_banner=1" style="width:100%;height:620px"></div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/permanentsummer/30min?primary_color=b8663f&text_color=1b2a41&background_color=ffffff&hide_event_type_details=1&hide_gdpr_banner=1"></div>
     </div>
   </div>
 </section>
