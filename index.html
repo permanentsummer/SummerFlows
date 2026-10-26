@@ -3,37 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SummerFlows — Hospitality Operations, Simplified</title>
+<title>SummerFlow — One place to run your rental</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════
-   DESIGN TOKENS
+   DESIGN TOKENS — SummerFlow palette
 ═══════════════════════════════════════════════ */
 :root {
-  --navy: #0A2540;
-  --navy-deep: #061830;
-  --navy-mid: #0e3358;
-  --yellow: #FFD447;
-  --yellow-dark: #F5C100;
-  --yellow-light: #FFF4CC;
-  --sand: #FFF4CC;
+  --navy: #1b2a41;
+  --navy-deep: #111e2e;
+  --navy-mid: #243552;
+  --terra: #b8663f;
+  --terra-dark: #9e5533;
+  --terra-light: #f5e6dc;
+  --sand: #f8f1ea;
   --white: #FAFAFA;
-  --blue-accent: #1D4ED8;
-  --blue-light: #EFF6FF;
-  --text: #0A2540;
+  --text: #1b2a41;
   --text-muted: #556C8A;
   --text-light: #8A9DB5;
   --border: #E2EAF3;
   --card: #FFFFFF;
-  --bg: #F7F9FC;
+  --bg: #f8f1ea;
   --radius: 16px;
   --radius-sm: 10px;
   --radius-lg: 24px;
-  --shadow-sm: 0 2px 8px rgba(10,37,64,.07);
-  --shadow: 0 8px 32px rgba(10,37,64,.10);
-  --shadow-lg: 0 24px 64px rgba(10,37,64,.14);
+  --shadow-sm: 0 2px 8px rgba(27,42,65,.07);
+  --shadow: 0 8px 32px rgba(27,42,65,.10);
+  --shadow-lg: 0 24px 64px rgba(27,42,65,.14);
   --transition: .35s cubic-bezier(.25,.46,.45,.94);
 }
 
@@ -41,18 +39,13 @@
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* ═══════════════════════════════════════════════
-   UTILITIES
-═══════════════════════════════════════════════ */
 .container{max-width:1120px;margin:0 auto;padding:0 24px}
 .container-sm{max-width:760px;margin:0 auto;padding:0 24px}
 
-.tag{display:inline-flex;align-items:center;gap:6px;background:var(--yellow-light);color:var(--navy);font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.4px;text-transform:uppercase}
-.tag--blue{background:var(--blue-light);color:var(--blue-accent)}
+.tag{display:inline-flex;align-items:center;gap:6px;background:var(--terra-light);color:var(--navy);font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.4px;text-transform:uppercase}
+.tag-dot{width:6px;height:6px;background:var(--terra);border-radius:50%;display:inline-block}
 .tag--white{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18)}
-.tag-dot{width:6px;height:6px;background:var(--yellow);border-radius:50%;display:inline-block}
-.tag--blue .tag-dot{background:var(--blue-accent)}
-.tag--white .tag-dot{background:var(--yellow)}
+.tag--white .tag-dot{background:var(--terra)}
 
 h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .section-title{font-size:clamp(32px,5vw,52px);font-weight:900;color:var(--navy)}
@@ -60,19 +53,16 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .section-head{text-align:center;margin-bottom:64px}
 
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;padding:13px 24px;border-radius:12px;cursor:pointer;border:none;text-decoration:none;transition:all var(--transition)}
-.btn-primary{background:var(--yellow);color:var(--navy)}
-.btn-primary:hover{background:var(--yellow-dark);transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,212,71,.35)}
+.btn-primary{background:var(--terra);color:#fff}
+.btn-primary:hover{background:var(--terra-dark);transform:translateY(-1px);box-shadow:0 8px 24px rgba(184,102,63,.35)}
 .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--border)}
 .btn-outline:hover{border-color:var(--navy);background:var(--bg)}
 .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.25)}
 .btn-ghost:hover{background:rgba(255,255,255,.22)}
 .btn-white{background:#fff;color:var(--navy)}
-.btn-white:hover{background:var(--yellow-light);transform:translateY(-1px)}
+.btn-white:hover{background:var(--terra-light);transform:translateY(-1px)}
 .btn-lg{padding:16px 32px;font-size:16px;border-radius:14px}
 
-/* ═══════════════════════════════════════════════
-   SCROLL ANIMATIONS
-═══════════════════════════════════════════════ */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
@@ -85,23 +75,12 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .delay-4{transition-delay:.4s}
 .delay-5{transition-delay:.5s}
 
-/* ═══════════════════════════════════════════════
-   NAVBAR
-═══════════════════════════════════════════════ */
-.navbar{
-  position:fixed;top:0;left:0;right:0;z-index:999;
-  padding:16px 0;transition:all .35s;
-}
-.navbar.scrolled{
-  background:rgba(10,37,64,.97);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  padding:12px 0;
-  box-shadow:0 2px 40px rgba(0,0,0,.25);
-}
+/* ═══ NAVBAR ═══ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:16px 0;transition:all .35s}
+.navbar.scrolled{background:rgba(27,42,65,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 0;box-shadow:0 2px 40px rgba(0,0,0,.25)}
 .nav-inner{display:flex;align-items:center;gap:32px;max-width:1120px;margin:0 auto;padding:0 24px}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.nav-logo-ico{width:36px;height:36px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nav-logo-ico{width:36px;height:36px;background:var(--terra);border-radius:10px;display:flex;align-items:center;justify-content:center}
 .nav-logo-ico svg{width:20px;height:20px}
 .nav-logo-name{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.3px}
 .nav-links{display:flex;align-items:center;gap:4px;flex:1}
@@ -110,63 +89,32 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .nav-ctas{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0}
 .nav-login{color:rgba(255,255,255,.75);font-size:14px;font-weight:600;padding:8px 16px;border-radius:8px;text-decoration:none;transition:all .2s}
 .nav-login:hover{color:#fff}
-.nav-start{background:var(--yellow);color:var(--navy);font-size:14px;font-weight:700;padding:9px 20px;border-radius:10px;text-decoration:none;transition:all .2s;white-space:nowrap}
-.nav-start:hover{background:var(--yellow-dark);transform:translateY(-1px)}
-
-/* Mobile nav toggle */
+.nav-start{background:var(--terra);color:#fff;font-size:14px;font-weight:700;padding:9px 20px;border-radius:10px;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-start:hover{background:var(--terra-dark);transform:translateY(-1px)}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:transparent;border:none}
 .nav-toggle span{width:22px;height:2px;background:#fff;border-radius:2px;display:block;transition:all .25s}
 
-/* ═══════════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════════ */
-.hero{
-  min-height:100vh;
-  background:linear-gradient(145deg, var(--navy-deep) 0%, var(--navy) 50%, #0e3a6e 100%);
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
-  padding:120px 0 80px;
-}
-
-/* Animated background shapes */
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;background:linear-gradient(145deg, var(--navy-deep) 0%, var(--navy) 50%, #243552 100%);display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px}
 .hero-bg-shape{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
-.hero-bg-shape.s1{width:600px;height:600px;background:rgba(29,78,216,.15);top:-100px;right:-100px;animation:float1 8s ease-in-out infinite}
-.hero-bg-shape.s2{width:400px;height:400px;background:rgba(255,212,71,.07);bottom:-80px;left:-80px;animation:float2 10s ease-in-out infinite}
-.hero-bg-shape.s3{width:300px;height:300px;background:rgba(29,78,216,.1);top:50%;left:40%;animation:float3 7s ease-in-out infinite}
-
-/* Grid pattern overlay */
-.hero-grid{
-  position:absolute;inset:0;
-  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:60px 60px;
-  pointer-events:none;
-}
-
+.hero-bg-shape.s1{width:600px;height:600px;background:rgba(184,102,63,.12);top:-100px;right:-100px;animation:float1 8s ease-in-out infinite}
+.hero-bg-shape.s2{width:400px;height:400px;background:rgba(248,241,234,.05);bottom:-80px;left:-80px;animation:float2 10s ease-in-out infinite}
+.hero-bg-shape.s3{width:300px;height:300px;background:rgba(184,102,63,.08);top:50%;left:40%;animation:float3 7s ease-in-out infinite}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 @keyframes float1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-30px) rotate(5deg)}}
 @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 @keyframes float3{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(20px) scale(1.05)}}
-
 .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,212,71,.15);border:1px solid rgba(255,212,71,.3);color:var(--yellow);font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:24px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(184,102,63,.18);border:1px solid rgba(184,102,63,.3);color:#f0b896;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:24px}
 .hero-title{font-size:clamp(40px,5.5vw,64px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-.8px}
-.hero-title span{color:var(--yellow)}
+.hero-title span{color:#f0b896}
 .hero-sub{font-size:17px;color:rgba(255,255,255,.65);line-height:1.7;margin-top:20px;font-family:'Inter',sans-serif;font-weight:400;max-width:480px}
 .hero-ctas{display:flex;align-items:center;gap:12px;margin-top:36px;flex-wrap:wrap}
 .hero-stats{display:flex;gap:32px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1)}
 .hero-stat-num{font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px}
 .hero-stat-label{font-size:12px;color:rgba(255,255,255,.5);font-weight:500;margin-top:2px;font-family:'Inter',sans-serif}
-
-/* Hero visual */
 .hero-visual{position:relative}
-.hero-dashboard{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:20px;
-  overflow:hidden;
-  backdrop-filter:blur(12px);
-  animation:heroFloat 6s ease-in-out infinite;
-  box-shadow:0 40px 80px rgba(0,0,0,.3);
-}
+.hero-dashboard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;overflow:hidden;backdrop-filter:blur(12px);animation:heroFloat 6s ease-in-out infinite;box-shadow:0 40px 80px rgba(0,0,0,.3)}
 .hero-dash-top{background:rgba(255,255,255,.08);padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.08)}
 .dash-dot{width:10px;height:10px;border-radius:50%}
 .dash-dot.red{background:#FF5F57}
@@ -174,22 +122,19 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .dash-dot.green{background:#28C840}
 .hero-dash-title{color:rgba(255,255,255,.5);font-size:11px;font-weight:600;margin-left:6px;letter-spacing:.3px}
 .hero-dash-body{padding:20px}
-
 .dash-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
-.dash-greeting{font-size:13px;color:rgba(255,255,255,.5);font-weight:500}
+.dash-greeting{font-size:11px;color:rgba(255,255,255,.4);font-weight:600;letter-spacing:.3px}
 .dash-title{font-size:18px;font-weight:800;color:#fff;margin-top:2px}
-.dash-date-badge{background:rgba(255,212,71,.2);color:var(--yellow);font-size:10px;font-weight:700;padding:4px 10px;border-radius:6px;letter-spacing:.3px}
-
+.dash-date-badge{background:rgba(184,102,63,.2);color:#f0b896;font-size:10px;font-weight:700;padding:4px 10px;border-radius:6px;letter-spacing:.3px}
 .dash-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
 .dash-stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px}
 .dsc-label{font-size:10px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
 .dsc-val{font-size:22px;font-weight:900;color:#fff;margin:2px 0}
 .dsc-trend{font-size:10px;font-weight:600;color:#34D399}
-
 .dash-bookings{margin-bottom:12px}
 .db-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .db-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px}
-.db-see{font-size:10px;color:var(--yellow);font-weight:600;cursor:pointer}
+.db-see{font-size:10px;color:#f0b896;font-weight:600;cursor:pointer}
 .booking-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
 .booking-row:last-child{border-bottom:none}
 .br-avatar{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
@@ -198,61 +143,32 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .br-dates{font-size:10px;color:rgba(255,255,255,.35);font-weight:500}
 .br-status{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px}
 .br-status.confirmed{background:rgba(52,211,153,.15);color:#34D399}
-.br-status.pending{background:rgba(251,191,36,.15);color:#FBBF24}
+.br-status.pending{background:rgba(184,102,63,.2);color:#f0b896}
 .br-status.checkout{background:rgba(148,163,184,.12);color:#94A3B8}
-
-/* Floating cards */
-.hero-float-card{
-  position:absolute;
-  background:rgba(255,255,255,.95);
-  border-radius:14px;
-  padding:12px 16px;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);
-  border:1px solid rgba(255,255,255,.8);
-  backdrop-filter:blur(12px);
-  min-width:160px;
-}
-.hero-float-card.hfc-tasks{
-  bottom:-20px;left:-40px;
-  animation:floatCard1 5s ease-in-out infinite;
-}
-.hero-float-card.hfc-notify{
-  top:20px;right:-30px;
-  animation:floatCard2 6s ease-in-out infinite;
-}
+.hero-float-card{position:absolute;background:rgba(255,255,255,.95);border-radius:14px;padding:12px 16px;box-shadow:0 20px 40px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(12px);min-width:160px}
+.hero-float-card.hfc-tasks{bottom:-20px;left:-40px;animation:floatCard1 5s ease-in-out infinite}
+.hero-float-card.hfc-notify{top:20px;right:-30px;animation:floatCard2 6s ease-in-out infinite}
 .hfc-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
 .hfc-label{font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px}
 .hfc-val{font-size:18px;font-weight:900;color:var(--navy)}
 .hfc-sub{font-size:10px;color:var(--text-muted);margin-top:2px}
 .hfc-dot{width:8px;height:8px;background:#10B981;border-radius:50%;display:inline-block;margin-right:5px;animation:pulse 2s infinite}
-
 @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes floatCard1{0%,100%{transform:translate(0,0)}50%{transform:translate(4px,-8px)}}
 @keyframes floatCard2{0%,100%{transform:translate(0,0)}50%{transform:translate(-4px,8px)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* ═══════════════════════════════════════════════
-   LOGOS / TRUST BAR
-═══════════════════════════════════════════════ */
+/* ═══ TRUST BAR ═══ */
 .trust-bar{padding:48px 0;border-bottom:1px solid var(--border);background:#fff}
 .trust-label{text-align:center;font-size:12px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:.8px;margin-bottom:32px}
 .trust-logos{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
-.trust-logo-item{display:flex;align-items:center;gap:8px;opacity:.45;transition:opacity .2s;cursor:default}
-.trust-logo-item:hover{opacity:.7}
+.trust-logo-item{display:flex;align-items:center;gap:8px;opacity:.5;transition:opacity .2s;cursor:default}
+.trust-logo-item:hover{opacity:.8}
 .trust-logo-ico{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
 .trust-logo-name{font-size:14px;font-weight:700;color:var(--navy);letter-spacing:-.2px}
-
-/* Reviews row */
 .reviews-row{display:flex;gap:16px;overflow-x:auto;padding:32px 0 8px;scrollbar-width:none}
 .reviews-row::-webkit-scrollbar{display:none}
-.review-card{
-  flex:0 0 280px;
-  background:#fff;
-  border:1.5px solid var(--border);
-  border-radius:16px;
-  padding:20px;
-  transition:transform .25s,box-shadow .25s;
-}
+.review-card{flex:0 0 280px;background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:20px;transition:transform .25s,box-shadow .25s}
 .review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .review-stars{display:flex;gap:2px;margin-bottom:10px}
 .review-stars span{color:#FBBF24;font-size:14px}
@@ -262,54 +178,51 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .review-name{font-size:12px;font-weight:700;color:var(--navy)}
 .review-role{font-size:11px;color:var(--text-light);font-family:'Inter',sans-serif}
 
-/* ═══════════════════════════════════════════════
-   PROBLEM SECTION
-═══════════════════════════════════════════════ */
+/* ═══ PROBLEM ═══ */
 .problem{padding:100px 0;background:var(--bg)}
 .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-.problem-card{
-  background:#fff;
-  border:1.5px solid var(--border);
-  border-radius:var(--radius);
-  padding:28px;
-  transition:all .3s;
-  position:relative;overflow:hidden;
-}
-.problem-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(213,64,71,.03),transparent 60%);
-  opacity:0;transition:opacity .3s;
-}
-.problem-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#E2EAF3}
+.problem-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.problem-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,102,63,.04),transparent 60%);opacity:0;transition:opacity .3s}
+.problem-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .problem-card:hover::before{opacity:1}
-.pc-icon{width:44px;height:44px;background:rgba(213,64,71,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.pc-icon svg{width:22px;height:22px;stroke:#D54047;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pc-icon{width:44px;height:44px;background:rgba(184,102,63,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.pc-icon svg{width:22px;height:22px;stroke:var(--terra);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .pc-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:8px}
 .pc-desc{font-size:13px;color:var(--text-muted);line-height:1.6;font-family:'Inter',sans-serif}
 
-/* ═══════════════════════════════════════════════
-   SOLUTION SECTION
-═══════════════════════════════════════════════ */
+/* ═══ HOW IT WORKS ═══ */
+.how{padding:100px 0;background:#fff}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;position:relative}
+.steps-row::before{content:'';position:absolute;top:36px;left:calc(16.66% + 20px);right:calc(16.66% + 20px);height:2px;background:linear-gradient(90deg,var(--terra),var(--navy));opacity:.2;pointer-events:none}
+.step-card{background:var(--bg);border-radius:var(--radius);padding:32px;text-align:center;transition:all .3s;border:1.5px solid transparent}
+.step-card:hover{background:#fff;border-color:var(--border);box-shadow:var(--shadow);transform:translateY(-4px)}
+.step-num{width:56px;height:56px;background:var(--terra);color:#fff;border-radius:50%;font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.step-title{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.step-desc{font-size:13px;color:var(--text-muted);line-height:1.6;font-family:'Inter',sans-serif}
+
+/* ═══ FEATURES GRID ═══ */
+.features{padding:100px 0;background:var(--bg)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.feat-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:all .3s;position:relative;overflow:hidden}
+.feat-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--navy));opacity:0;transition:opacity .3s}
+.feat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.feat-card:hover::after{opacity:1}
+.fc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px}
+.fc-title{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.fc-desc{font-size:13px;color:var(--text-muted);line-height:1.65;font-family:'Inter',sans-serif}
+
+/* ═══ SOLUTION (2-col) ═══ */
 .solution{padding:100px 0;background:#fff;overflow:hidden}
 .solution-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.solution-visual{position:relative}
-.solution-screen{
-  background:var(--navy);
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  border:1px solid rgba(255,255,255,.1);
-}
+.solution-screen{background:var(--navy);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(255,255,255,.1)}
 .ss-topbar{background:rgba(255,255,255,.05);padding:10px 16px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.06)}
 .ss-body{padding:20px}
-
-/* Mini app UI */
 .mini-sidebar{display:flex;gap:12px}
 .mini-nav{width:44px;flex-shrink:0;display:flex;flex-direction:column;gap:4px}
 .mini-nav-item{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center}
-.mini-nav-item.on{background:var(--yellow)}
+.mini-nav-item.on{background:var(--terra)}
 .mini-nav-item svg{width:16px;height:16px;stroke:rgba(255,255,255,.5);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.mini-nav-item.on svg{stroke:var(--navy)}
+.mini-nav-item.on svg{stroke:#fff}
 .mini-main{flex:1;min-width:0}
 .mini-greeting{font-size:10px;color:rgba(255,255,255,.4);font-weight:600;letter-spacing:.3px;text-transform:uppercase;margin-bottom:2px}
 .mini-title{font-size:15px;font-weight:800;color:#fff;margin-bottom:12px}
@@ -323,298 +236,93 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .mini-bk-av{width:22px;height:22px;border-radius:5px;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
 .mini-bk-name{font-size:10px;font-weight:700;color:rgba(255,255,255,.8);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mini-bk-badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px}
-
-.sol-badge{
-  position:absolute;
-  background:#fff;
-  border-radius:12px;
-  padding:10px 14px;
-  box-shadow:var(--shadow);
-  border:1.5px solid var(--border);
-  display:flex;align-items:center;gap:8px;
-}
+.sol-badge{position:absolute;background:#fff;border-radius:12px;padding:10px 14px;box-shadow:var(--shadow);border:1.5px solid var(--border);display:flex;align-items:center;gap:8px}
 .sol-badge.sb1{bottom:-16px;left:-24px;animation:floatCard1 5s ease-in-out infinite}
 .sol-badge.sb2{top:20px;right:-24px;animation:floatCard2 6s ease-in-out infinite}
 .sbl-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sbl-text .t{font-size:11px;font-weight:800;color:var(--navy)}
 .sbl-text .s{font-size:10px;color:var(--text-muted)}
-
 .solution-content{}
 .sol-features{display:flex;flex-direction:column;gap:20px;margin-top:32px}
 .sol-feature{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;border:1.5px solid var(--border);border-radius:14px;background:#fff;transition:all .25s;cursor:default}
-.sol-feature:hover{border-color:var(--yellow);box-shadow:0 0 0 4px rgba(255,212,71,.1);transform:translateX(4px)}
-.sf-icon{width:40px;height:40px;border-radius:10px;background:var(--yellow-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sf-icon svg{width:20px;height:20px;stroke:var(--navy);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sol-feature:hover{border-color:var(--terra);box-shadow:0 0 0 4px rgba(184,102,63,.1);transform:translateX(4px)}
+.sf-icon{width:40px;height:40px;border-radius:10px;background:var(--terra-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sf-icon svg{width:20px;height:20px;stroke:var(--terra);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .sf-text .t{font-size:14px;font-weight:800;color:var(--navy)}
 .sf-text .s{font-size:12px;color:var(--text-muted);line-height:1.55;font-family:'Inter',sans-serif;margin-top:3px}
 
-/* ═══════════════════════════════════════════════
-   FEATURE SECTIONS (alternating)
-═══════════════════════════════════════════════ */
-.feature-section{padding:100px 0}
-.feature-section:nth-child(even){background:var(--bg)}
-.feature-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.feature-inner.reverse{direction:rtl}
-.feature-inner.reverse>*{direction:ltr}
-
-.feature-content .feat-tag{margin-bottom:16px}
-.feature-content h2{font-size:clamp(28px,4vw,40px);font-weight:900;color:var(--navy);line-height:1.15}
-.feature-content h2 strong{color:var(--blue-accent)}
-.feature-content .feat-sub{font-size:15px;color:var(--text-muted);line-height:1.7;font-family:'Inter',sans-serif;margin-top:14px}
-.feat-points{display:flex;flex-direction:column;gap:12px;margin-top:24px}
-.feat-point{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--text)}
-.feat-point::before{content:'';width:20px;height:20px;background:var(--yellow-light);border-radius:50%;display:flex;align-items:center;justify-content:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A2540' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center;flex-shrink:0}
-
-/* Feature visual mockup */
-.feature-visual{
-  background:var(--navy);
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  padding:24px;
-  min-height:320px;
-  display:flex;flex-direction:column;
-  position:relative;
-}
-.feature-visual.light{background:var(--bg);border:1.5px solid var(--border)}
-.fv-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px}
-.fv-label.dark{color:var(--text-light)}
-
-/* Calendar mockup */
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.cal-day{text-align:center;font-size:10px;font-weight:700;color:rgba(255,255,255,.3);padding:4px 2px;text-transform:uppercase}
-.cal-cell{aspect-ratio:1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:default;transition:all .15s}
-.cal-cell.empty{background:transparent}
-.cal-cell.today{background:var(--yellow);color:var(--navy);font-weight:900}
-.cal-cell.has-booking{background:rgba(29,78,216,.3);color:#93C5FD}
-.cal-cell.checkout{background:rgba(52,211,153,.2);color:#34D399}
-.cal-cell.blocked{background:rgba(213,64,71,.2);color:#F87171}
-.cal-cell:hover:not(.empty){transform:scale(1.1)}
-
-/* Task list mockup */
-.task-list{display:flex;flex-direction:column;gap:8px}
-.task-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07)}
-.task-checkbox{width:18px;height:18px;border-radius:5px;border:2px solid rgba(255,255,255,.2);flex-shrink:0}
-.task-checkbox.done{background:var(--yellow);border-color:var(--yellow);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A2540' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:11px;background-repeat:no-repeat;background-position:center}
-.task-name{font-size:12px;font-weight:600;color:rgba(255,255,255,.7);flex:1}
-.task-name.done{text-decoration:line-through;color:rgba(255,255,255,.3)}
-.task-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px}
-.task-badge.clean{background:rgba(52,211,153,.15);color:#34D399}
-.task-badge.check{background:rgba(251,191,36,.15);color:#FBBF24}
-.task-badge.asap{background:rgba(248,113,113,.15);color:#F87171}
-
-/* Payment visual */
-.payment-list{display:flex;flex-direction:column;gap:8px}
-.pay-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07)}
-.pay-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
-.pay-info{flex:1;min-width:0}
-.pay-name{font-size:12px;font-weight:700;color:rgba(255,255,255,.8)}
-.pay-date{font-size:10px;color:rgba(255,255,255,.35);font-family:'Inter',sans-serif}
-.pay-amount{font-size:14px;font-weight:800;color:#fff}
-.pay-status{font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;margin-top:2px;display:inline-block}
-
-/* Notification visual */
-.notif-list{display:flex;flex-direction:column;gap:8px}
-.notif-item{display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07)}
-.notif-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
-.notif-content{flex:1;min-width:0}
-.notif-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.85)}
-.notif-text{font-size:11px;color:rgba(255,255,255,.4);font-family:'Inter',sans-serif;margin-top:2px;line-height:1.4}
-.notif-time{font-size:10px;color:rgba(255,255,255,.25);white-space:nowrap;flex-shrink:0;margin-top:2px}
-
-/* ═══════════════════════════════════════════════
-   MOBILE SECTION
-═══════════════════════════════════════════════ */
-.mobile-section{padding:100px 0;background:var(--navy);overflow:hidden;position:relative}
-.mobile-section .hero-bg-shape.s1{opacity:.4}
-.mobile-section .hero-bg-shape.s2{opacity:.3}
-.mobile-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
-
-.mobile-content .section-title{color:#fff}
-.mobile-content .section-sub{color:rgba(255,255,255,.55)}
-.mobile-points{display:flex;flex-direction:column;gap:16px;margin-top:32px}
-.mobile-point{display:flex;align-items:flex-start;gap:14px}
-.mp-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,212,71,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mp-icon svg{width:20px;height:20px;stroke:var(--yellow);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.mp-text .t{font-size:14px;font-weight:800;color:#fff}
-.mp-text .s{font-size:12px;color:rgba(255,255,255,.4);font-family:'Inter',sans-serif;margin-top:2px}
-
-/* Phone mockup */
-.phone-wrap{display:flex;justify-content:center;position:relative}
-.phone{
-  width:230px;
-  background:var(--navy-deep);
-  border-radius:36px;
-  border:8px solid rgba(255,255,255,.1);
-  overflow:hidden;
-  box-shadow:0 40px 80px rgba(0,0,0,.4);
-  animation:heroFloat 5s ease-in-out infinite;
-  position:relative;z-index:2;
-}
-.phone-notch{width:80px;height:24px;background:rgba(0,0,0,.6);border-radius:0 0 14px 14px;margin:0 auto;position:relative;z-index:3}
-.phone-screen{padding:16px;min-height:400px}
-.phone-status{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.phone-time{font-size:13px;font-weight:800;color:#fff}
-.phone-icons{display:flex;gap:4px;align-items:center}
-.ph-icon{font-size:10px;color:rgba(255,255,255,.5)}
-.phone-app-header{margin-bottom:14px}
-.pah-greeting{font-size:10px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
-.pah-title{font-size:16px;font-weight:900;color:#fff;margin-top:2px}
-.phone-today-card{background:rgba(255,212,71,.15);border:1px solid rgba(255,212,71,.25);border-radius:12px;padding:12px;margin-bottom:10px}
-.ptc-label{font-size:9px;font-weight:700;color:var(--yellow);text-transform:uppercase;letter-spacing:.4px}
-.ptc-val{font-size:20px;font-weight:900;color:#fff;margin:2px 0}
-.ptc-sub{font-size:10px;color:rgba(255,255,255,.4)}
-.phone-quick{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
-.pq-item{background:rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:center}
-.pq-icon{font-size:18px;margin-bottom:4px}
-.pq-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.3px}
-.pq-val{font-size:14px;font-weight:900;color:#fff}
-.phone-tasks-mini{background:rgba(255,255,255,.04);border-radius:10px;padding:10px}
-.ptm-header{font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px}
-.ptm-item{display:flex;align-items:center;gap:6px;margin-bottom:6px}
-.ptm-cb{width:14px;height:14px;border-radius:4px;border:1.5px solid rgba(255,255,255,.2);flex-shrink:0}
-.ptm-cb.done{background:var(--yellow);border-color:var(--yellow)}
-.ptm-text{font-size:10px;font-weight:600;color:rgba(255,255,255,.6)}
-.ptm-text.done{color:rgba(255,255,255,.2);text-decoration:line-through}
-
-.phone-float-badge{
-  position:absolute;
-  background:#fff;
-  border-radius:10px;
-  padding:8px 12px;
-  box-shadow:var(--shadow);
-  display:flex;align-items:center;gap:8px;
-  white-space:nowrap;
-}
-.phone-float-badge.pfb1{right:-30px;top:80px;animation:floatCard2 4s ease-in-out infinite}
-.phone-float-badge.pfb2{left:-40px;bottom:100px;animation:floatCard1 5s ease-in-out infinite}
-.pfb-icon{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
-.pfb-text .t{font-size:11px;font-weight:800;color:var(--navy)}
-.pfb-text .s{font-size:10px;color:var(--text-muted)}
-
-/* ═══════════════════════════════════════════════
-   AUTOMATION SECTION
-═══════════════════════════════════════════════ */
-.automation{padding:100px 0;background:var(--bg)}
-.auto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-.auto-card{
-  background:#fff;
-  border:1.5px solid var(--border);
-  border-radius:var(--radius-lg);
-  padding:32px;
-  transition:all .3s;
-  position:relative;overflow:hidden;
-}
-.auto-card::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--yellow),var(--blue-accent));
-  opacity:0;transition:opacity .3s;
-}
-.auto-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
-.auto-card:hover::after{opacity:1}
-.ac-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px}
-.ac-title{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px}
-.ac-desc{font-size:13px;color:var(--text-muted);line-height:1.65;font-family:'Inter',sans-serif}
-.ac-badge{display:inline-flex;align-items:center;gap:5px;background:var(--blue-light);color:var(--blue-accent);font-size:10px;font-weight:700;padding:4px 10px;border-radius:6px;margin-top:16px;letter-spacing:.3px}
-
-/* ═══════════════════════════════════════════════
-   PRICING
-═══════════════════════════════════════════════ */
+/* ═══ PRICING ═══ */
 .pricing{padding:100px 0;background:var(--navy);position:relative;overflow:hidden}
 .pricing .hero-bg-shape.s1{opacity:.3}
 .pricing .hero-bg-shape.s2{opacity:.2}
 .pricing-inner{position:relative;z-index:2}
-.pricing-card{
-  background:rgba(255,255,255,.05);
-  border:1.5px solid rgba(255,255,255,.1);
-  border-radius:24px;
-  padding:52px;
-  max-width:800px;
-  margin:56px auto 0;
-  backdrop-filter:blur(10px);
-  position:relative;overflow:hidden;
-  transition:all .35s;
-}
-.pricing-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,212,71,.06),transparent 50%);
-  pointer-events:none;
-}
-.pricing-card:hover{transform:translateY(-4px);box-shadow:0 40px 80px rgba(0,0,0,.3);border-color:rgba(255,212,71,.3)}
+.pricing-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:24px;padding:52px;max-width:800px;margin:56px auto 0;backdrop-filter:blur(10px);position:relative;overflow:hidden;transition:all .35s}
+.pricing-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,102,63,.08),transparent 50%);pointer-events:none}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 40px 80px rgba(0,0,0,.3);border-color:rgba(184,102,63,.35)}
 .pricing-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:40px}
-.pricing-label{font-size:12px;font-weight:700;color:var(--yellow);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.pricing-label{font-size:12px;font-weight:700;color:#f0b896;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
 .pricing-name{font-size:36px;font-weight:900;color:#fff;letter-spacing:-.5px}
 .pricing-price{text-align:right}
 .pricing-num{font-size:52px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px}
 .pricing-num sup{font-size:22px;vertical-align:super;font-weight:700}
-.pricing-forever{font-size:13px;color:var(--yellow);font-weight:700;margin-top:4px}
+.pricing-forever{font-size:13px;color:#f0b896;font-weight:700;margin-top:4px}
 .pricing-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}
 .pf-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.8)}
-.pf-check{width:20px;height:20px;background:rgba(255,212,71,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px}
+.pf-check{width:20px;height:20px;background:rgba(184,102,63,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px}
 .pricing-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .pricing-no-cc{font-size:12px;color:rgba(255,255,255,.35);font-weight:500;font-family:'Inter',sans-serif}
-.pricing-no-cc span{display:block;margin-top:2px;color:rgba(255,255,255,.25)}
 
-/* ═══════════════════════════════════════════════
-   FINAL CTA
-═══════════════════════════════════════════════ */
-.final-cta{
-  padding:100px 0;
-  background:linear-gradient(135deg, #F7F9FC 0%, var(--yellow-light) 100%);
-  text-align:center;
-  position:relative;overflow:hidden;
-}
-.final-cta::before{
-  content:'';position:absolute;width:600px;height:600px;background:rgba(255,212,71,.15);
-  border-radius:50%;top:-200px;right:-100px;filter:blur(60px);pointer-events:none;
-}
+/* ═══ FAQ ═══ */
+.faq{padding:100px 0;background:var(--bg)}
+.faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+.faq-item{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--terra)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 24px;cursor:pointer;font-size:15px;font-weight:700;color:var(--navy);user-select:none}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--terra-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s}
+.faq-item.open .faq-icon{background:var(--terra);transform:rotate(45deg)}
+.faq-icon svg{width:12px;height:12px;stroke:var(--terra);stroke-width:2.5;stroke-linecap:round}
+.faq-item.open .faq-icon svg{stroke:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.25,.46,.45,.94)}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 24px 20px;font-size:14px;color:var(--text-muted);line-height:1.7;font-family:'Inter',sans-serif}
+
+/* ═══ FINAL CTA ═══ */
+.final-cta{padding:100px 0;background:linear-gradient(135deg,#fff 0%,var(--terra-light) 100%);text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;width:600px;height:600px;background:rgba(184,102,63,.12);border-radius:50%;top:-200px;right:-100px;filter:blur(60px);pointer-events:none}
 .cta-inner{position:relative;z-index:2}
 .cta-title{font-size:clamp(36px,5vw,56px);font-weight:900;color:var(--navy);line-height:1.1;letter-spacing:-.6px;max-width:700px;margin:0 auto 20px}
 .cta-sub{font-size:17px;color:var(--text-muted);font-family:'Inter',sans-serif;max-width:480px;margin:0 auto 40px;line-height:1.65}
 .cta-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .cta-trust{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:32px;flex-wrap:wrap}
 .cta-trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);font-weight:600}
-.cti-dot{width:6px;height:6px;background:var(--yellow);border-radius:50%}
+.cti-dot{width:6px;height:6px;background:var(--terra);border-radius:50%}
 
-/* ═══════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════ */
+/* ═══ FOOTER ═══ */
 footer{background:var(--navy-deep);padding:64px 0 32px}
 .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
 .footer-brand .fl-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.fl-logo-ico{width:36px;height:36px;background:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.fl-logo-ico{width:36px;height:36px;background:var(--terra);border-radius:10px;display:flex;align-items:center;justify-content:center}
 .fl-logo-name{font-size:16px;font-weight:800;color:#fff}
 .footer-brand p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.65;font-family:'Inter',sans-serif;max-width:260px}
-.footer-socials{display:flex;gap:10px;margin-top:20px}
-.social-link{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .2s}
-.social-link:hover{background:rgba(255,212,71,.15)}
-.social-link svg{width:16px;height:16px;fill:rgba(255,255,255,.4);transition:fill .2s}
-.social-link:hover svg{fill:var(--yellow)}
 .footer-col h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.7px;margin-bottom:16px}
 .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;font-family:'Inter',sans-serif;margin-bottom:10px;transition:color .2s}
 .footer-col a:hover{color:rgba(255,255,255,.85)}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-size:12px;color:rgba(255,255,255,.2);font-family:'Inter',sans-serif}
-.footer-bottom-links{display:flex;gap:20px}
-.footer-bottom-links a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;font-family:'Inter',sans-serif;transition:color .2s}
-.footer-bottom-links a:hover{color:rgba(255,255,255,.5)}
 
-/* ═══════════════════════════════════════════════
-   MOBILE RESPONSIVE
-═══════════════════════════════════════════════ */
+/* ═══ RESPONSIVE ═══ */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:48px}
   .hero-visual{display:none}
   .solution-inner{grid-template-columns:1fr;gap:48px}
-  .feature-inner{grid-template-columns:1fr;gap:40px}
-  .feature-inner.reverse{direction:ltr}
-  .mobile-inner{grid-template-columns:1fr;gap:48px}
-  .problem-grid{grid-template-columns:1fr 1fr;gap:16px}
-  .auto-grid{grid-template-columns:1fr;gap:16px}
+  .problem-grid,.feat-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .steps-row{grid-template-columns:1fr;gap:16px}
+  .steps-row::before{display:none}
   .pricing-features{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
   .pricing-top{flex-direction:column;gap:16px}
   .pricing-card{padding:32px 24px}
+  .faq-cols{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .nav-links{display:none}
@@ -622,33 +330,29 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
   .hero{padding:100px 0 60px}
   .hero-title{font-size:36px}
   .hero-stats{gap:20px}
-  .problem-grid{grid-template-columns:1fr}
+  .problem-grid,.feat-grid{grid-template-columns:1fr}
   .trust-logos{gap:24px}
   .footer-inner{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   .section-head{margin-bottom:40px}
-  .feature-section{padding:64px 0}
-  .mobile-section{padding:64px 0}
-  .automation{padding:64px 0}
-  .pricing{padding:64px 0}
-  .final-cta{padding:64px 0}
   .hero-ctas{flex-direction:column;width:100%}
   .hero-ctas .btn{width:100%;justify-content:center}
 }
 
-/* Mobile nav drawer */
-.mobile-nav{
-  position:fixed;top:0;left:0;right:0;bottom:0;
-  background:var(--navy);z-index:1000;
-  display:flex;flex-direction:column;padding:24px;
-  transform:translateX(-100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);
-}
+/* Mobile nav */
+.mobile-nav{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);z-index:1000;display:flex;flex-direction:column;padding:24px;transform:translateX(-100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94)}
 .mobile-nav.open{transform:translateX(0)}
 .mobile-nav-close{align-self:flex-end;background:transparent;border:none;color:#fff;font-size:28px;cursor:pointer;padding:8px;line-height:1}
 .mobile-nav-links{display:flex;flex-direction:column;gap:4px;margin-top:32px;flex:1}
 .mobile-nav-link{color:rgba(255,255,255,.7);font-size:20px;font-weight:700;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;transition:color .2s}
 .mobile-nav-link:hover{color:#fff}
 .mobile-nav-ctas{display:flex;flex-direction:column;gap:10px;margin-top:32px}
+
+/* Lang switcher */
+.lang-switcher{display:flex;gap:4px;margin-left:8px}
+.lang-btn{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.6);font-size:11px;font-weight:700;padding:5px 9px;border-radius:6px;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.lang-btn.active{background:var(--terra);color:#fff}
+.lang-btn:hover:not(.active){background:rgba(255,255,255,.18);color:#fff}
 </style>
 </head>
 <body>
@@ -658,21 +362,26 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <div class="nav-logo-ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2540" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
       </div>
-      <span class="nav-logo-name">SummerFlows</span>
+      <span class="nav-logo-name">SummerFlow</span>
     </a>
     <div class="nav-links">
-      <a href="#features" class="nav-link">Features</a>
-      <a href="#solutions" class="nav-link">Solutions</a>
-      <a href="#mobile" class="nav-link">Mobile</a>
-      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#how" class="nav-link" data-en="How it works" data-fr="Comment ça marche" data-pt="Como funciona">How it works</a>
+      <a href="#features" class="nav-link" data-en="Features" data-fr="Fonctionnalités" data-pt="Funcionalidades">Features</a>
+      <a href="#pricing" class="nav-link" data-en="Pricing" data-fr="Tarifs" data-pt="Preços">Pricing</a>
+      <a href="#faq" class="nav-link" data-en="FAQ" data-fr="FAQ" data-pt="FAQ">FAQ</a>
     </div>
     <div class="nav-ctas">
-      <a href="https://summerflow.permanentsummer.co" class="nav-login">Log in</a>
-      <a href="https://summerflow.permanentsummer.co" class="nav-start">Start Free →</a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      </div>
+      <a href="https://summerflow.permanentsummer.co" class="nav-login" data-en="Log in" data-fr="Connexion" data-pt="Entrar">Log in</a>
+      <a href="https://summerflow.permanentsummer.co" class="nav-start" data-en="Get Started →" data-fr="Commencer →" data-pt="Começar →">Get Started →</a>
     </div>
     <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -680,18 +389,17 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
   </div>
 </nav>
 
-<!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
   <div class="mobile-nav-links">
-    <a href="#features" class="mobile-nav-link" onclick="toggleMobileNav()">Features</a>
-    <a href="#solutions" class="mobile-nav-link" onclick="toggleMobileNav()">Solutions</a>
-    <a href="#mobile" class="mobile-nav-link" onclick="toggleMobileNav()">Mobile App</a>
-    <a href="#pricing" class="mobile-nav-link" onclick="toggleMobileNav()">Pricing</a>
+    <a href="#how" class="mobile-nav-link" onclick="toggleMobileNav()" data-en="How it works" data-fr="Comment ça marche" data-pt="Como funciona">How it works</a>
+    <a href="#features" class="mobile-nav-link" onclick="toggleMobileNav()" data-en="Features" data-fr="Fonctionnalités" data-pt="Funcionalidades">Features</a>
+    <a href="#pricing" class="mobile-nav-link" onclick="toggleMobileNav()" data-en="Pricing" data-fr="Tarifs" data-pt="Preços">Pricing</a>
+    <a href="#faq" class="mobile-nav-link" onclick="toggleMobileNav()" data-en="FAQ" data-fr="FAQ" data-pt="FAQ">FAQ</a>
   </div>
   <div class="mobile-nav-ctas">
-    <a href="https://summerflow.permanentsummer.co" class="btn btn-ghost btn-lg" style="justify-content:center">Log in</a>
-    <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" style="justify-content:center;color:var(--navy)">Start Free — It's Free →</a>
+    <a href="https://summerflow.permanentsummer.co" class="btn btn-ghost btn-lg" style="justify-content:center" data-en="Log in" data-fr="Connexion" data-pt="Entrar">Log in</a>
+    <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" style="justify-content:center" data-en="Get Started — Free →" data-fr="Commencer — Gratuit →" data-pt="Começar — Grátis →">Get Started — Free →</a>
   </div>
 </div>
 
@@ -706,30 +414,28 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="tag-dot"></span>
-          Built for Hospitality Operators
+          <span data-en="Short-term rental management" data-fr="Gestion de location courte durée" data-pt="Gestão de alojamento local">Short-term rental management</span>
         </div>
         <h1 class="hero-title">
-          Manage your<br><span>hospitality</span><br>operations<br>effortlessly.
+          <span data-en="One place to<br>run your<br><em style='color:#f0b896;font-style:normal'>rental.</em>" data-fr="Tout pour gérer<br>votre<br><em style='color:#f0b896;font-style:normal'>location.</em>" data-pt="Tudo para gerir<br>o seu<br><em style='color:#f0b896;font-style:normal'>alojamento.</em>">One place to<br>run your<br><em style="color:#f0b896;font-style:normal">rental.</em></span>
         </h1>
-        <p class="hero-sub">Bookings, teams, cleanings, schedules, tasks and payments — all in one elegant platform designed for Airbnb hosts, property managers, and hospitality teams.</p>
+        <p class="hero-sub" data-en="Reservations, direct bookings, cleaning and your real numbers — all in one app built for rental owners." data-fr="Réservations, réservations directes, ménage et vos vrais chiffres — tout dans une app faite pour les propriétaires." data-pt="Reservas, reservas diretas, limpeza e os seus números reais — tudo numa app feita para proprietários.">Reservations, direct bookings, cleaning and your real numbers — all in one app built for rental owners.</p>
         <div class="hero-ctas">
-          <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg">
-            Start Free — No credit card
-          </a>
-          <a href="#features" class="btn btn-ghost btn-lg">See how it works</a>
+          <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Start Free — No card needed" data-fr="Commencer gratuitement" data-pt="Começar gratuitamente">Start Free — No card needed</a>
+          <a href="#how" class="btn btn-ghost btn-lg" data-en="See how it works" data-fr="Voir comment ça marche" data-pt="Ver como funciona">See how it works</a>
         </div>
         <div class="hero-stats">
           <div>
             <div class="hero-stat-num">∞</div>
-            <div class="hero-stat-label">Properties</div>
+            <div class="hero-stat-label" data-en="Properties" data-fr="Propriétés" data-pt="Propriedades">Properties</div>
           </div>
           <div>
             <div class="hero-stat-num">∞</div>
-            <div class="hero-stat-label">Team Members</div>
+            <div class="hero-stat-label" data-en="Bookings" data-fr="Réservations" data-pt="Reservas">Bookings</div>
           </div>
           <div>
             <div class="hero-stat-num">Free</div>
-            <div class="hero-stat-label">Forever</div>
+            <div class="hero-stat-label" data-en="Forever" data-fr="Pour toujours" data-pt="Para sempre">Forever</div>
           </div>
         </div>
       </div>
@@ -739,31 +445,31 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
             <div class="dash-dot red"></div>
             <div class="dash-dot yellow"></div>
             <div class="dash-dot green"></div>
-            <span class="hero-dash-title">SummerFlows — Dashboard</span>
+            <span class="hero-dash-title">SummerFlow — Dashboard</span>
           </div>
           <div class="hero-dash-body">
             <div class="dash-header">
               <div>
-                <div class="dash-greeting" style="font-size:11px;color:rgba(255,255,255,.4);font-weight:600">GOOD MORNING, CHRIS ☀️</div>
-                <div class="dash-title">Operations Overview</div>
+                <div class="dash-greeting">GOOD MORNING, CHRIS</div>
+                <div class="dash-title">My Rentals</div>
               </div>
-              <div class="dash-date-badge">12 MAY 2026</div>
+              <div class="dash-date-badge">26 OCT 2026</div>
             </div>
             <div class="dash-stats-row">
               <div class="dash-stat-card">
                 <div class="dsc-label">Active</div>
-                <div class="dsc-val">8</div>
+                <div class="dsc-val">5</div>
                 <div class="dsc-trend">↑ Bookings</div>
               </div>
               <div class="dash-stat-card">
                 <div class="dsc-label">Revenue</div>
-                <div class="dsc-val">€4.2k</div>
+                <div class="dsc-val">€3.8k</div>
                 <div class="dsc-trend">↑ This month</div>
               </div>
               <div class="dash-stat-card">
-                <div class="dsc-label">Tasks</div>
-                <div class="dsc-val">3</div>
-                <div class="dsc-trend" style="color:#FBBF24">⚡ Pending</div>
+                <div class="dsc-label">Cleanings</div>
+                <div class="dsc-val">2</div>
+                <div class="dsc-trend" style="color:#FBBF24">⚡ Today</div>
               </div>
             </div>
             <div class="dash-bookings">
@@ -774,24 +480,24 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
               <div class="booking-row">
                 <div class="br-avatar" style="background:#3B82F6">SD</div>
                 <div class="br-info">
-                  <div class="br-name">Sara Díaz — Villa Saramago</div>
-                  <div class="br-dates">12 May → 17 May · 2 guests</div>
+                  <div class="br-name">Sara Díaz — Unit 1</div>
+                  <div class="br-dates">26 Oct → 30 Oct · Airbnb</div>
                 </div>
                 <div class="br-status confirmed">Confirmed</div>
               </div>
               <div class="booking-row">
-                <div class="br-avatar" style="background:#8B5CF6">TM</div>
+                <div class="br-avatar" style="background:#b8663f">TM</div>
                 <div class="br-info">
-                  <div class="br-name">Tom Miller — Al-Paranaguá</div>
-                  <div class="br-dates">14 May → 20 May · 4 guests</div>
+                  <div class="br-name">Tom Miller — Unit 2</div>
+                  <div class="br-dates">28 Oct → 3 Nov · Direct</div>
                 </div>
                 <div class="br-status pending">Check-in</div>
               </div>
               <div class="booking-row">
                 <div class="br-avatar" style="background:#10B981">FL</div>
                 <div class="br-info">
-                  <div class="br-name">Fiona Lee — Villa Saramago</div>
-                  <div class="br-dates">20 May → 25 May · 3 guests</div>
+                  <div class="br-name">Fiona Lee — Unit 1</div>
+                  <div class="br-dates">31 Oct → 5 Nov · Booking.com</div>
                 </div>
                 <div class="br-status checkout">Upcoming</div>
               </div>
@@ -800,23 +506,23 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
         </div>
         <!-- Floating cards -->
         <div class="hero-float-card hfc-tasks">
-          <div class="hfc-icon" style="background:#EFF6FF">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="9" y="11" width="13" height="13" rx="2"/><path d="M5 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h1"/><polyline points="9 7 9 3 15 3"/><polyline points="9 11 12 14 22 4"/></svg>
+          <div class="hfc-icon" style="background:#f5e6dc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b8663f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </div>
           <div>
-            <div class="hfc-label">Tasks Today</div>
-            <div class="hfc-val">3</div>
-            <div class="hfc-sub"><span class="hfc-dot"></span>2 completed</div>
+            <div class="hfc-label" data-en="Cleanings today" data-fr="Ménages aujourd'hui" data-pt="Limpezas hoje">Cleanings today</div>
+            <div class="hfc-val">2</div>
+            <div class="hfc-sub"><span class="hfc-dot"></span><span data-en="1 completed" data-fr="1 terminé" data-pt="1 concluída">1 completed</span></div>
           </div>
         </div>
         <div class="hero-float-card hfc-notify">
           <div class="hfc-icon" style="background:#F0FDF4">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.1 19.79 19.79 0 0 1 1.5 2.48 2 2 0 0 1 3.48.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.5 6.5l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <div>
-            <div class="hfc-label">WhatsApp Sent</div>
-            <div class="hfc-val">Check-in</div>
-            <div class="hfc-sub">Auto-notification</div>
+            <div class="hfc-label" data-en="Direct booking" data-fr="Réservation directe" data-pt="Reserva direta">Direct booking</div>
+            <div class="hfc-val" data-en="Paid" data-fr="Payé" data-pt="Pago">Paid</div>
+            <div class="hfc-sub" data-en="Unit 2 · 6 nights" data-fr="Unité 2 · 6 nuits" data-pt="Unidade 2 · 6 noites">Unit 2 · 6 nights</div>
           </div>
         </div>
       </div>
@@ -827,237 +533,166 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
 <!-- ═══ TRUST BAR ═══ -->
 <section class="trust-bar">
   <div class="container">
-    <div class="trust-label">Trusted by hospitality operators across the Algarve & beyond</div>
+    <div class="trust-label" data-en="Works with your existing channels" data-fr="Compatible avec vos canaux existants" data-pt="Compatível com os seus canais existentes">Works with your existing channels</div>
     <div class="trust-logos">
       <div class="trust-logo-item">
-        <div class="trust-logo-ico" style="background:#FF5A5F;color:#fff;font-weight:900;font-size:16px">A</div>
-        <span class="trust-logo-name">Airbnb Hosts</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg" alt="Airbnb" style="height:28px;width:auto;filter:grayscale(1)">
       </div>
       <div class="trust-logo-item">
-        <div class="trust-logo-ico" style="background:#003580;color:#fff;font-weight:900;font-size:12px">B.</div>
-        <span class="trust-logo-name">Booking.com</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" alt="Booking.com" style="height:22px;width:auto;filter:grayscale(1)">
       </div>
       <div class="trust-logo-item">
-        <div class="trust-logo-ico" style="background:#1DB954;color:#fff;font-size:18px">🏡</div>
-        <span class="trust-logo-name">Holiday Villas</span>
-      </div>
-      <div class="trust-logo-item">
-        <div class="trust-logo-ico" style="background:#F59E0B;color:#fff;font-size:18px">🏨</div>
-        <span class="trust-logo-name">Boutique Hotels</span>
-      </div>
-      <div class="trust-logo-item">
-        <div class="trust-logo-ico" style="background:#8B5CF6;color:#fff;font-size:18px">🧹</div>
-        <span class="trust-logo-name">Cleaning Teams</span>
-      </div>
-    </div>
-    <!-- Reviews -->
-    <div class="reviews-row" style="margin-top:40px">
-      <div class="review-card reveal delay-1">
-        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="review-text">"SummerFlows replaced three different apps for us. Now everything is in one place and my team always knows what to do."</div>
-        <div class="review-author">
-          <div class="review-avatar" style="background:#3B82F6">MP</div>
-          <div>
-            <div class="review-name">Maria Pereira</div>
-            <div class="review-role">Property Manager, Algarve · 12 properties</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card reveal delay-2">
-        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="review-text">"The cleaning calendar alone saved us so much time. Guests arrive to a perfectly prepared property every single time."</div>
-        <div class="review-author">
-          <div class="review-avatar" style="background:#10B981">JS</div>
-          <div>
-            <div class="review-name">João Silva</div>
-            <div class="review-role">Airbnb Superhost · 5 units</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card reveal delay-3">
-        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="review-text">"Finally an operations tool built for hospitality. The WhatsApp integration means guests never miss check-in details."</div>
-        <div class="review-author">
-          <div class="review-avatar" style="background:#8B5CF6">SL</div>
-          <div>
-            <div class="review-name">Sophie Laurent</div>
-            <div class="review-role">Boutique Hotel Owner · 8 rooms</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card reveal delay-4">
-        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="review-text">"I used to manage bookings in spreadsheets. SummerFlows changed everything — beautiful, fast, and completely free."</div>
-        <div class="review-author">
-          <div class="review-avatar" style="background:#F59E0B">AK</div>
-          <div>
-            <div class="review-name">Ana Kovács</div>
-            <div class="review-role">Holiday Villa Host · 3 properties</div>
-          </div>
-        </div>
+        <span style="font-size:14px;font-weight:800;color:var(--navy);letter-spacing:-.3px">Direct Bookings</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ PROBLEM ═══ -->
-<section class="problem" id="solutions">
+<section class="problem" id="problem">
   <div class="container">
-    <div class="section-head">
-      <div class="tag reveal"><span class="tag-dot"></span>Sound familiar?</div>
-      <h2 class="section-title reveal delay-1">Hospitality is hard enough<br>without operational chaos.</h2>
-      <p class="section-sub reveal delay-2">Most hosts and operators are juggling too many tools, too many chats, and too many missed steps.</p>
+    <div class="section-head reveal">
+      <div class="tag"><span class="tag-dot"></span><span data-en="The challenge" data-fr="Le défi" data-pt="O desafio">The challenge</span></div>
+      <h2 class="section-title" style="margin-top:16px" data-en="Running a rental is messy." data-fr="Gérer une location, c'est compliqué." data-pt="Gerir um alojamento é complicado.">Running a rental is messy.</h2>
+      <p class="section-sub" data-en="Too many apps, missed messages, and no clear picture of your numbers." data-fr="Trop d'apps, des messages manqués, et aucune vision claire de vos chiffres." data-pt="Demasiadas apps, mensagens perdidas e nenhuma visão clara dos seus números.">Too many apps, missed messages, and no clear picture of your numbers.</p>
     </div>
     <div class="problem-grid">
       <div class="problem-card reveal delay-1">
         <div class="pc-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
         </div>
-        <div class="pc-title">WhatsApp Overload</div>
-        <div class="pc-desc">Hundreds of messages a day for cleaners, check-ins, and maintenance. Everything gets lost in chat.</div>
+        <div class="pc-title" data-en="Bookings scattered everywhere" data-fr="Réservations éparpillées partout" data-pt="Reservas espalhadas por todo o lado">Bookings scattered everywhere</div>
+        <div class="pc-desc" data-en="Airbnb, Booking.com, WhatsApp, email — no single view of what's coming." data-fr="Airbnb, Booking.com, WhatsApp, email — aucune vue centralisée de vos réservations." data-pt="Airbnb, Booking.com, WhatsApp, email — nenhuma visão centralizada do que aí vem.">Airbnb, Booking.com, WhatsApp, email — no single view of what's coming.</div>
       </div>
       <div class="problem-card reveal delay-2">
         <div class="pc-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         </div>
-        <div class="pc-title">Spreadsheet Madness</div>
-        <div class="pc-desc">Managing bookings in Excel means manual updates, version conflicts, and constant risk of errors.</div>
+        <div class="pc-title" data-en="Cleaning coordination chaos" data-fr="Coordination du ménage chaotique" data-pt="Coordenação de limpeza caótica">Cleaning coordination chaos</div>
+        <div class="pc-desc" data-en="Calling cleaners after every checkout, hoping nothing falls through the cracks." data-fr="Appeler les femmes de ménage après chaque départ, en espérant que rien ne passe entre les mailles." data-pt="Ligar às limpezas após cada checkout, esperando que nada falhe.">Calling cleaners after every checkout, hoping nothing falls through the cracks.</div>
       </div>
       <div class="problem-card reveal delay-3">
         <div class="pc-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <div class="pc-title">Uncoordinated Teams</div>
-        <div class="pc-desc">Cleaners show up at the wrong time. Maintenance is forgotten. Tasks fall through the cracks daily.</div>
-      </div>
-      <div class="problem-card reveal delay-1">
-        <div class="pc-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="pc-title">Missed Check-ins</div>
-        <div class="pc-desc">Guests arrive with no instructions. Keys in the wrong place. First impressions ruined by poor coordination.</div>
-      </div>
-      <div class="problem-card reveal delay-2">
-        <div class="pc-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <div class="pc-title">Payment Confusion</div>
-        <div class="pc-desc">Tracking security deposits, partial payments, and outstanding balances across multiple platforms is exhausting.</div>
-      </div>
-      <div class="problem-card reveal delay-3">
-        <div class="pc-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-        </div>
-        <div class="pc-title">Too Many Platforms</div>
-        <div class="pc-desc">Airbnb, Booking.com, WhatsApp, Excel, email — switching between 5 apps to manage one property is unsustainable.</div>
+        <div class="pc-title" data-en="No real financial picture" data-fr="Pas de vision financière réelle" data-pt="Sem visão financeira real">No real financial picture</div>
+        <div class="pc-desc" data-en="You earn, you spend, but you can't tell if each property actually makes money." data-fr="Vous gagnez, vous dépensez, mais impossible de savoir si chaque propriété est rentable." data-pt="Recebe, gasta, mas não consegue saber se cada propriedade dá lucro.">You earn, you spend, but you can't tell if each property actually makes money.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ SOLUTION ═══ -->
-<section class="solution" id="features">
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag"><span class="tag-dot"></span><span data-en="Simple by design" data-fr="Simple par conception" data-pt="Simples por design">Simple by design</span></div>
+      <h2 class="section-title" style="margin-top:16px" data-en="Up and running in minutes." data-fr="Opérationnel en quelques minutes." data-pt="Pronto a usar em minutos.">Up and running in minutes.</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step-card reveal delay-1">
+        <div class="step-num">1</div>
+        <div class="step-title" data-en="Add your properties" data-fr="Ajoutez vos propriétés" data-pt="Adicione as suas propriedades">Add your properties</div>
+        <div class="step-desc" data-en="Create your rentals, set your rates and add your team in a few taps." data-fr="Créez vos locations, définissez vos tarifs et ajoutez votre équipe en quelques clics." data-pt="Crie os seus alojamentos, defina os seus preços e adicione a sua equipa em poucos toques.">Create your rentals, set your rates and add your team in a few taps.</div>
+      </div>
+      <div class="step-card reveal delay-2">
+        <div class="step-num">2</div>
+        <div class="step-title" data-en="Log your bookings" data-fr="Enregistrez vos réservations" data-pt="Registe as suas reservas">Log your bookings</div>
+        <div class="step-desc" data-en="Add reservations from any channel — Airbnb, Booking.com or direct — and cleanings are scheduled automatically." data-fr="Ajoutez des réservations depuis n'importe quel canal — Airbnb, Booking.com ou direct — et les ménages sont planifiés automatiquement." data-pt="Adicione reservas de qualquer canal — Airbnb, Booking.com ou direto — e as limpezas são agendadas automaticamente.">Add reservations from any channel — Airbnb, Booking.com or direct — and cleanings are scheduled automatically.</div>
+      </div>
+      <div class="step-card reveal delay-3">
+        <div class="step-num">3</div>
+        <div class="step-title" data-en="See your real numbers" data-fr="Voyez vos vrais chiffres" data-pt="Veja os seus números reais">See your real numbers</div>
+        <div class="step-desc" data-en="Revenue, cleaning costs, direct booking payments — all tracked and visible per property." data-fr="Revenus, coûts de ménage, paiements directs — tout suivi et visible par propriété." data-pt="Receitas, custos de limpeza, pagamentos diretos — tudo registado e visível por propriedade.">Revenue, cleaning costs, direct booking payments — all tracked and visible per property.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOLUTION / RESERVATIONS ═══ -->
+<section class="solution" id="solution">
   <div class="container">
     <div class="solution-inner">
-      <div class="solution-visual reveal-left">
+      <div class="solution-visual reveal-left" style="position:relative">
         <div class="solution-screen">
           <div class="ss-topbar">
             <div class="dash-dot red"></div>
             <div class="dash-dot yellow"></div>
             <div class="dash-dot green"></div>
-            <span style="font-size:11px;color:rgba(255,255,255,.3);margin-left:6px;font-weight:600">summerflow.permanentsummer.co</span>
+            <span style="font-size:11px;color:rgba(255,255,255,.4);margin-left:6px;font-weight:600">Reservations</span>
           </div>
           <div class="ss-body">
             <div class="mini-sidebar">
               <div class="mini-nav">
                 <div class="mini-nav-item on">
-                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                </div>
-                <div class="mini-nav-item">
                   <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
                 <div class="mini-nav-item">
-                  <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                 </div>
                 <div class="mini-nav-item">
-                  <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="mini-nav-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                 </div>
               </div>
               <div class="mini-main">
-                <div class="mini-greeting">OVERVIEW</div>
-                <div class="mini-title">Operations Dashboard</div>
+                <div class="mini-greeting">Reservations</div>
+                <div class="mini-title">October 2026</div>
                 <div class="mini-cards">
-                  <div class="mini-stat"><div class="n">8</div><div class="l">Bookings</div></div>
-                  <div class="mini-stat"><div class="n">€4k</div><div class="l">Revenue</div></div>
-                  <div class="mini-stat"><div class="n">3</div><div class="l">Tasks</div></div>
+                  <div class="mini-stat"><div class="n">8</div><div class="l">Active</div></div>
+                  <div class="mini-stat"><div class="n" style="color:#34D399">6</div><div class="l">Confirmed</div></div>
+                  <div class="mini-stat"><div class="n" style="color:#f0b896">2</div><div class="l">Pending</div></div>
                 </div>
                 <div class="mini-bk-title">Upcoming</div>
                 <div class="mini-bk">
                   <div class="mini-bk-av" style="background:#3B82F6">SD</div>
-                  <div class="mini-bk-name">Sara Díaz — Saramago</div>
-                  <div class="mini-bk-badge" style="background:rgba(52,211,153,.15);color:#34D399">In</div>
+                  <div class="mini-bk-name">Sara Díaz — Unit 1</div>
+                  <div class="mini-bk-badge" style="background:rgba(52,211,153,.15);color:#34D399">Airbnb</div>
                 </div>
                 <div class="mini-bk">
-                  <div class="mini-bk-av" style="background:#8B5CF6">TM</div>
-                  <div class="mini-bk-name">Tom Miller — Al-Para</div>
-                  <div class="mini-bk-badge" style="background:rgba(251,191,36,.15);color:#FBBF24">Soon</div>
+                  <div class="mini-bk-av" style="background:#b8663f">TM</div>
+                  <div class="mini-bk-name">Tom Miller — Unit 2</div>
+                  <div class="mini-bk-badge" style="background:rgba(184,102,63,.2);color:#f0b896">Direct</div>
                 </div>
                 <div class="mini-bk">
-                  <div class="mini-bk-av" style="background:#10B981">FL</div>
-                  <div class="mini-bk-name">Fiona Lee — Saramago</div>
-                  <div class="mini-bk-badge" style="background:rgba(148,163,184,.1);color:#94A3B8">Out</div>
+                  <div class="mini-bk-av" style="background:#8B5CF6">FL</div>
+                  <div class="mini-bk-name">Fiona Lee — Unit 1</div>
+                  <div class="mini-bk-badge" style="background:rgba(0,53,128,.15);color:#6B9FF0">Booking</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Floating solution badges -->
         <div class="sol-badge sb1">
-          <div class="sbl-icon" style="background:#F0FDF4"><span style="font-size:14px">✅</span></div>
-          <div class="sbl-text">
-            <div class="t">All caught up</div>
-            <div class="s">No tasks overdue</div>
+          <div class="sbl-icon" style="background:#f5e6dc">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b8663f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
+          <div class="sbl-text"><div class="t" data-en="All channels" data-fr="Tous les canaux" data-pt="Todos os canais">All channels</div><div class="s">Airbnb · Booking · Direct</div></div>
         </div>
         <div class="sol-badge sb2">
-          <div class="sbl-icon" style="background:#EFF6FF"><span style="font-size:14px">🔔</span></div>
-          <div class="sbl-text">
-            <div class="t">Auto-notified</div>
-            <div class="s">Guest & cleaner</div>
+          <div class="sbl-icon" style="background:#F0FDF4">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
+          <div class="sbl-text"><div class="t" data-en="Auto cleaning" data-fr="Ménage auto" data-pt="Limpeza auto">Auto cleaning</div><div class="s" data-en="Scheduled on checkout" data-fr="Planifié au départ" data-pt="Agendado no checkout">Scheduled on checkout</div></div>
         </div>
       </div>
       <div class="solution-content reveal-right">
-        <div class="tag"><span class="tag-dot"></span>The Solution</div>
-        <h2 class="section-title" style="margin-top:16px">One platform.<br>Every operation.</h2>
-        <p class="section-sub">SummerFlows brings together everything your hospitality business needs — so you can focus on great guest experiences, not operational firefighting.</p>
+        <div class="tag"><span class="tag-dot"></span><span data-en="Reservations" data-fr="Réservations" data-pt="Reservas">Reservations</span></div>
+        <h2 class="section-title" style="margin-top:16px;font-size:clamp(28px,4vw,40px)" data-en="Every booking in one calendar." data-fr="Toutes les réservations dans un seul calendrier." data-pt="Todas as reservas num único calendário.">Every booking in one calendar.</h2>
         <div class="sol-features">
           <div class="sol-feature">
-            <div class="sf-icon">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <div class="sf-text">
-              <div class="t">Booking Management</div>
-              <div class="s">Import from Airbnb & Booking.com. See all reservations in one unified calendar.</div>
-            </div>
+            <div class="sf-icon"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div class="sf-text"><div class="t" data-en="Airbnb, Booking.com, Direct" data-fr="Airbnb, Booking.com, Direct" data-pt="Airbnb, Booking.com, Direto">Airbnb, Booking.com, Direct</div><div class="s" data-en="Log reservations from any source in one shared calendar." data-fr="Enregistrez des réservations de toute source dans un calendrier partagé." data-pt="Registe reservas de qualquer fonte num calendário partilhado.">Log reservations from any source in one shared calendar.</div></div>
           </div>
           <div class="sol-feature">
-            <div class="sf-icon">
-              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="sf-text">
-              <div class="t">Team Coordination</div>
-              <div class="s">Assign tasks to cleaners and maintenance. Everyone knows what to do and when.</div>
-            </div>
+            <div class="sf-icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.1 19.79 19.79 0 0 1 1.5 2.48 2 2 0 0 1 3.48.5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.5 6.5l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="sf-text"><div class="t" data-en="Guest details at a glance" data-fr="Détails des voyageurs d'un coup d'œil" data-pt="Detalhes do hóspede de relance">Guest details at a glance</div><div class="s" data-en="Dates, number of guests, channel and payment status per booking." data-fr="Dates, nombre de voyageurs, canal et statut de paiement par réservation." data-pt="Datas, número de hóspedes, canal e estado de pagamento por reserva.">Dates, number of guests, channel and payment status per booking.</div></div>
           </div>
           <div class="sol-feature">
-            <div class="sf-icon">
-              <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            </div>
-            <div class="sf-text">
-              <div class="t">Payment Tracking</div>
-              <div class="s">Monitor deposits, outstanding payments, and revenue across all your properties.</div>
-            </div>
+            <div class="sf-icon"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="sf-text"><div class="t" data-en="Cleaning auto-scheduled" data-fr="Ménage planifié automatiquement" data-pt="Limpeza agendada automaticamente">Cleaning auto-scheduled</div><div class="s" data-en="A checkout triggers a cleaning task. Your team sees it immediately." data-fr="Un départ déclenche une tâche de ménage. Votre équipe la voit immédiatement." data-pt="Um checkout aciona uma tarefa de limpeza. A sua equipa vê-a imediatamente.">A checkout triggers a cleaning task. Your team sees it immediately.</div></div>
           </div>
         </div>
       </div>
@@ -1065,346 +700,43 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
   </div>
 </section>
 
-<!-- ═══ FEATURE: BOOKINGS ═══ -->
-<section class="feature-section" style="background:var(--bg)">
+<!-- ═══ FEATURES GRID ═══ -->
+<section class="features" id="features">
   <div class="container">
-    <div class="feature-inner">
-      <div class="feature-content reveal-left">
-        <div class="tag feat-tag"><span class="tag-dot"></span>Booking Management</div>
-        <h2>Every reservation,<br><strong>perfectly organised.</strong></h2>
-        <p class="feat-sub">Import bookings automatically from Airbnb and Booking.com. View everything in a clean calendar. Add PDF confirmations and extract guest details instantly.</p>
-        <div class="feat-points">
-          <div class="feat-point">Multi-platform import (Airbnb, Booking.com, direct)</div>
-          <div class="feat-point">PDF import with automatic data extraction</div>
-          <div class="feat-point">Edit, update, and delete any reservation</div>
-          <div class="feat-point">Real-time calendar view across all properties</div>
-          <div class="feat-point">Guest count auto-calculation (adults + children)</div>
-        </div>
-      </div>
-      <div class="reveal-right">
-        <div class="feature-visual">
-          <div class="fv-label">📅 Booking Calendar — May 2026</div>
-          <div class="cal-grid">
-            <div class="cal-day">Mo</div><div class="cal-day">Tu</div><div class="cal-day">We</div><div class="cal-day">Th</div><div class="cal-day">Fr</div><div class="cal-day">Sa</div><div class="cal-day">Su</div>
-            <div class="cal-cell empty"></div><div class="cal-cell empty"></div><div class="cal-cell empty"></div><div class="cal-cell empty"></div><div class="cal-cell empty"></div><div class="cal-cell">1</div><div class="cal-cell">2</div>
-            <div class="cal-cell">3</div><div class="cal-cell">4</div><div class="cal-cell">5</div><div class="cal-cell">6</div><div class="cal-cell">7</div><div class="cal-cell has-booking">8</div><div class="cal-cell has-booking">9</div>
-            <div class="cal-cell has-booking">10</div><div class="cal-cell has-booking">11</div><div class="cal-cell today">12</div><div class="cal-cell has-booking">13</div><div class="cal-cell has-booking">14</div><div class="cal-cell checkout">15</div><div class="cal-cell">16</div>
-            <div class="cal-cell">17</div><div class="cal-cell has-booking">18</div><div class="cal-cell has-booking">19</div><div class="cal-cell has-booking">20</div><div class="cal-cell checkout">21</div><div class="cal-cell">22</div><div class="cal-cell">23</div>
-            <div class="cal-cell blocked">24</div><div class="cal-cell blocked">25</div><div class="cal-cell">26</div><div class="cal-cell has-booking">27</div><div class="cal-cell has-booking">28</div><div class="cal-cell has-booking">29</div><div class="cal-cell checkout">30</div>
-          </div>
-          <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap">
-            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.4)"><div class="cal-cell has-booking" style="width:14px;height:14px;font-size:0;flex-shrink:0;border-radius:3px;aspect-ratio:unset"></div>Booked</div>
-            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.4)"><div class="cal-cell checkout" style="width:14px;height:14px;font-size:0;flex-shrink:0;border-radius:3px;aspect-ratio:unset"></div>Checkout</div>
-            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.4)"><div class="cal-cell blocked" style="width:14px;height:14px;font-size:0;flex-shrink:0;border-radius:3px;aspect-ratio:unset"></div>Blocked</div>
-          </div>
-        </div>
-      </div>
+    <div class="section-head reveal">
+      <div class="tag"><span class="tag-dot"></span><span data-en="Everything included" data-fr="Tout inclus" data-pt="Tudo incluído">Everything included</span></div>
+      <h2 class="section-title" style="margin-top:16px" data-en="All you need, nothing you don't." data-fr="Tout ce dont vous avez besoin, rien de plus." data-pt="Tudo o que precisa, nada do que não precisa.">All you need, nothing you don't.</h2>
     </div>
-  </div>
-</section>
-
-<!-- ═══ FEATURE: CLEANING ═══ -->
-<section class="feature-section" style="background:#fff">
-  <div class="container">
-    <div class="feature-inner reverse">
-      <div class="feature-content reveal-right">
-        <div class="tag feat-tag tag--blue"><span class="tag-dot"></span>Cleaning Operations</div>
-        <h2>Your cleaning team,<br><strong>always in sync.</strong></h2>
-        <p class="feat-sub">Automatically generate cleaning tasks from bookings. Send WhatsApp notifications to your team. Track completion and ensure properties are spotless for every arrival.</p>
-        <div class="feat-points">
-          <div class="feat-point">Auto-scheduled cleans based on check-outs</div>
-          <div class="feat-point">WhatsApp button on every cleaning card</div>
-          <div class="feat-point">View past & upcoming cleanings</div>
-          <div class="feat-point">Filter by property and status</div>
-          <div class="feat-point">Task assignment to specific cleaners</div>
-        </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal delay-1">
+        <div class="fc-icon" style="background:#f5e6dc">📅</div>
+        <div class="fc-title" data-en="Reservation Calendar" data-fr="Calendrier de réservations" data-pt="Calendário de reservas">Reservation Calendar</div>
+        <div class="fc-desc" data-en="All bookings across all properties. Check-ins, check-outs, occupancy — in one view." data-fr="Toutes les réservations sur toutes les propriétés en une seule vue." data-pt="Todas as reservas em todas as propriedades. Num único ecrã.">All bookings across all properties. Check-ins, check-outs, occupancy — in one view.</div>
       </div>
-      <div class="reveal-left">
-        <div class="feature-visual">
-          <div class="fv-label">🧹 Cleaning Schedule</div>
-          <div class="task-list">
-            <div class="task-item">
-              <div class="task-checkbox done"></div>
-              <div class="task-name done">Villa Saramago — Full clean</div>
-              <div class="task-badge clean">Done</div>
-            </div>
-            <div class="task-item">
-              <div class="task-checkbox done"></div>
-              <div class="task-name done">Al-Paranaguá — Linen change</div>
-              <div class="task-badge clean">Done</div>
-            </div>
-            <div class="task-item" style="border-color:rgba(255,212,71,.3)">
-              <div class="task-checkbox"></div>
-              <div class="task-name">Villa Saramago — Deep clean + pool check</div>
-              <div class="task-badge check">Today</div>
-            </div>
-            <div class="task-item">
-              <div class="task-checkbox"></div>
-              <div class="task-name">Al-Paranaguá — Pre-arrival setup</div>
-              <div class="task-badge asap">Tomorrow</div>
-            </div>
-            <div class="task-item">
-              <div class="task-checkbox"></div>
-              <div class="task-name">Villa Saramago — Key handover prep</div>
-              <div class="task-badge" style="background:rgba(148,163,184,.12);color:#94A3B8">May 15</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:10px;margin-top:16px">
-            <div style="display:flex;align-items:center;gap:8px;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.25);padding:8px 14px;border-radius:8px;cursor:pointer;flex:1;justify-content:center">
-              <span style="font-size:14px">💬</span>
-              <span style="font-size:11px;font-weight:700;color:#25D366">Send via WhatsApp</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:8px 14px;border-radius:8px;cursor:pointer;flex:1;justify-content:center">
-              <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.5)">+ Add Task</span>
-            </div>
-          </div>
-        </div>
+      <div class="feat-card reveal delay-2">
+        <div class="fc-icon" style="background:#e8f5e9">🧹</div>
+        <div class="fc-title" data-en="Cleaning Management" data-fr="Gestion du ménage" data-pt="Gestão de limpeza">Cleaning Management</div>
+        <div class="fc-desc" data-en="Schedule cleanings, assign your team, track completion — and log the cost per stay." data-fr="Planifiez les ménages, assignez votre équipe, suivez l'avancement et enregistrez le coût." data-pt="Agende limpezas, atribua a sua equipa, acompanhe e registe o custo por estadia.">Schedule cleanings, assign your team, track completion — and log the cost per stay.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FEATURE: PAYMENTS ═══ -->
-<section class="feature-section" style="background:var(--bg)">
-  <div class="container">
-    <div class="feature-inner">
-      <div class="feature-content reveal-left">
-        <div class="tag feat-tag"><span class="tag-dot"></span>Payment Tracking</div>
-        <h2>Revenue & payments<br><strong>always under control.</strong></h2>
-        <p class="feat-sub">Track security deposits, record payments, and monitor outstanding balances across all your properties. Know exactly where your money is at all times.</p>
-        <div class="feat-points">
-          <div class="feat-point">Per-booking payment tracking</div>
-          <div class="feat-point">Security deposit management</div>
-          <div class="feat-point">Revenue overview by property</div>
-          <div class="feat-point">Auto-status updates on payment</div>
-          <div class="feat-point">Expense tracking with proration</div>
-        </div>
+      <div class="feat-card reveal delay-3">
+        <div class="fc-icon" style="background:#e8f0fd">💳</div>
+        <div class="fc-title" data-en="Direct Bookings" data-fr="Réservations directes" data-pt="Reservas diretas">Direct Bookings</div>
+        <div class="fc-desc" data-en="Take bookings outside Airbnb. Track payment status — did I pay the cleaner? Did the guest pay?" data-fr="Prenez des réservations hors Airbnb. Suivez le statut de paiement facilement." data-pt="Aceite reservas fora do Airbnb. Acompanhe o estado dos pagamentos facilmente.">Take bookings outside Airbnb. Track payment status — did I pay the cleaner? Did the guest pay?</div>
       </div>
-      <div class="reveal-right">
-        <div class="feature-visual">
-          <div class="fv-label">💳 Payment Overview — May 2026</div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:16px">
-            <div style="background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.2);border-radius:10px;padding:12px 16px;text-align:center;flex:1;margin-right:6px">
-              <div style="font-size:10px;color:rgba(52,211,153,.7);font-weight:700;text-transform:uppercase;letter-spacing:.4px">Received</div>
-              <div style="font-size:22px;font-weight:900;color:#34D399;margin-top:2px">€3,840</div>
-            </div>
-            <div style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:12px 16px;text-align:center;flex:1;margin-left:6px">
-              <div style="font-size:10px;color:rgba(251,191,36,.7);font-weight:700;text-transform:uppercase;letter-spacing:.4px">Outstanding</div>
-              <div style="font-size:22px;font-weight:900;color:#FBBF24;margin-top:2px">€580</div>
-            </div>
-          </div>
-          <div class="payment-list">
-            <div class="pay-item">
-              <div class="pay-icon" style="background:rgba(59,130,246,.15);font-size:14px">🏡</div>
-              <div class="pay-info">
-                <div class="pay-name">Sara Díaz — Saramago</div>
-                <div class="pay-date">Check-in: 12 May · 5 nights</div>
-              </div>
-              <div>
-                <div class="pay-amount">€1,200</div>
-                <div class="pay-status" style="background:rgba(52,211,153,.15);color:#34D399">Paid</div>
-              </div>
-            </div>
-            <div class="pay-item">
-              <div class="pay-icon" style="background:rgba(139,92,246,.15);font-size:14px">🏡</div>
-              <div class="pay-info">
-                <div class="pay-name">Tom Miller — Al-Paranaguá</div>
-                <div class="pay-date">Check-in: 14 May · 6 nights</div>
-              </div>
-              <div>
-                <div class="pay-amount">€1,840</div>
-                <div class="pay-status" style="background:rgba(251,191,36,.15);color:#FBBF24">Partial</div>
-              </div>
-            </div>
-            <div class="pay-item">
-              <div class="pay-icon" style="background:rgba(16,185,129,.15);font-size:14px">🏡</div>
-              <div class="pay-info">
-                <div class="pay-name">Fiona Lee — Saramago</div>
-                <div class="pay-date">Check-in: 20 May · 5 nights</div>
-              </div>
-              <div>
-                <div class="pay-amount">€800</div>
-                <div class="pay-status" style="background:rgba(148,163,184,.1);color:#94A3B8">Pending</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="feat-card reveal delay-1">
+        <div class="fc-icon" style="background:#fff3e0">📊</div>
+        <div class="fc-title" data-en="Financial Overview" data-fr="Vue financière" data-pt="Visão financeira">Financial Overview</div>
+        <div class="fc-desc" data-en="Revenue, cleaning costs, net per property. Finally know which rental actually makes money." data-fr="Revenus, coûts de ménage, net par propriété. Sachez enfin quelle location est rentable." data-pt="Receitas, custos de limpeza, lucro por propriedade. Saiba finalmente qual alojamento é rentável.">Revenue, cleaning costs, net per property. Finally know which rental actually makes money.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ MOBILE SECTION ═══ -->
-<section class="mobile-section" id="mobile">
-  <div class="hero-bg-shape s1"></div>
-  <div class="hero-bg-shape s2"></div>
-  <div class="container">
-    <div class="mobile-inner">
-      <div class="mobile-content reveal-left">
-        <div class="tag tag--white" style="margin-bottom:20px"><span class="tag-dot"></span>Mobile Experience</div>
-        <h2 class="section-title" style="color:#fff">Your entire operation<br>in your pocket.</h2>
-        <p class="section-sub" style="color:rgba(255,255,255,.55)">SummerFlows works beautifully on any device. Check bookings, assign tasks, and contact your team — all from your phone.</p>
-        <div class="mobile-points">
-          <div class="mobile-point">
-            <div class="mp-icon">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <div class="mp-text">
-              <div class="t">Today's schedule at a glance</div>
-              <div class="s">See all arrivals, departures, and tasks for the day in seconds.</div>
-            </div>
-          </div>
-          <div class="mobile-point">
-            <div class="mp-icon">
-              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="mp-text">
-              <div class="t">Team coordination on-the-go</div>
-              <div class="s">Send WhatsApp messages and assign tasks from anywhere in the world.</div>
-            </div>
-          </div>
-          <div class="mobile-point">
-            <div class="mp-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.1 19.79 19.79 0 0 1 1.5 2.48 2 2 0 0 1 3.48.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.5 6.5l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="mp-text">
-              <div class="t">Instant notifications</div>
-              <div class="s">Get alerted for new bookings, task completions, and guest requests.</div>
-            </div>
-          </div>
-        </div>
-        <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" style="margin-top:32px;display:inline-flex">
-          Try SummerFlows Free →
-        </a>
+      <div class="feat-card reveal delay-2">
+        <div class="fc-icon" style="background:#fce4ec">🏠</div>
+        <div class="fc-title" data-en="Multi-Property" data-fr="Multi-propriété" data-pt="Multi-propriedade">Multi-Property</div>
+        <div class="fc-desc" data-en="Manage unlimited properties from one account. Each with its own calendar, team and numbers." data-fr="Gérez un nombre illimité de propriétés depuis un seul compte." data-pt="Gira propriedades ilimitadas a partir de uma única conta.">Manage unlimited properties from one account. Each with its own calendar, team and numbers.</div>
       </div>
-      <div class="phone-wrap reveal-right">
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-status">
-              <div class="phone-time">9:41</div>
-              <div class="phone-icons">
-                <span class="ph-icon">●●●</span>
-                <span class="ph-icon">WiFi</span>
-                <span class="ph-icon">🔋</span>
-              </div>
-            </div>
-            <div class="phone-app-header">
-              <div class="pah-greeting">GOOD MORNING ☀️</div>
-              <div class="pah-title">Today's Operations</div>
-            </div>
-            <div class="phone-today-card">
-              <div class="ptc-label">Arrivals Today</div>
-              <div class="ptc-val">2</div>
-              <div class="ptc-sub">Sara Díaz & Tom Miller</div>
-            </div>
-            <div class="phone-quick">
-              <div class="pq-item">
-                <div class="pq-icon">🧹</div>
-                <div class="pq-label">Cleans</div>
-                <div class="pq-val">1</div>
-              </div>
-              <div class="pq-item">
-                <div class="pq-icon">✅</div>
-                <div class="pq-label">Tasks</div>
-                <div class="pq-val">3</div>
-              </div>
-              <div class="pq-item">
-                <div class="pq-icon">💰</div>
-                <div class="pq-label">Revenue</div>
-                <div class="pq-val" style="font-size:11px">€4.2k</div>
-              </div>
-              <div class="pq-item">
-                <div class="pq-icon">🔑</div>
-                <div class="pq-label">Keys</div>
-                <div class="pq-val" style="font-size:11px">Ready</div>
-              </div>
-            </div>
-            <div class="phone-tasks-mini">
-              <div class="ptm-header">Today's Tasks</div>
-              <div class="ptm-item">
-                <div class="ptm-cb done"></div>
-                <div class="ptm-text done">Pool check — Saramago</div>
-              </div>
-              <div class="ptm-item">
-                <div class="ptm-cb done"></div>
-                <div class="ptm-text done">Linen set — Al-Para</div>
-              </div>
-              <div class="ptm-item">
-                <div class="ptm-cb"></div>
-                <div class="ptm-text">Key box — code reset</div>
-              </div>
-              <div class="ptm-item">
-                <div class="ptm-cb"></div>
-                <div class="ptm-text">Welcome pack — Saramago</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Floating badges -->
-        <div class="phone-float-badge pfb1">
-          <div class="pfb-icon" style="background:#F0FDF4">💬</div>
-          <div class="pfb-text">
-            <div class="t">WhatsApp Sent</div>
-            <div class="s">Check-in details</div>
-          </div>
-        </div>
-        <div class="phone-float-badge pfb2">
-          <div class="pfb-icon" style="background:#FFF4CC">⭐</div>
-          <div class="pfb-text">
-            <div class="t">5-star Review</div>
-            <div class="s">From Sara Díaz</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ AUTOMATIONS ═══ -->
-<section class="automation" id="automation">
-  <div class="container">
-    <div class="section-head">
-      <div class="tag reveal"><span class="tag-dot"></span>Smart Operations</div>
-      <h2 class="section-title reveal delay-1">Work smarter,<br>not harder.</h2>
-      <p class="section-sub reveal delay-2">SummerFlows is built to save you hours every week with intelligent workflows and instant communications.</p>
-    </div>
-    <div class="auto-grid">
-      <div class="auto-card reveal delay-1">
-        <div class="ac-icon" style="background:#F0FDF4;font-size:26px">💬</div>
-        <div class="ac-title">WhatsApp Integration</div>
-        <div class="ac-desc">One-tap WhatsApp messages to guests and cleaners directly from any booking or task card. No copy-pasting. No switching apps.</div>
-        <div class="ac-badge">💡 Instant communication</div>
-      </div>
-      <div class="auto-card reveal delay-2">
-        <div class="ac-icon" style="background:#EFF6FF;font-size:26px">📄</div>
-        <div class="ac-title">PDF Smart Import</div>
-        <div class="ac-desc">Upload a Booking.com PDF and SummerFlows automatically extracts guest names, dates, guest count, and applies platform fees.</div>
-        <div class="ac-badge">⚡ Seconds to import</div>
-      </div>
-      <div class="auto-card reveal delay-3">
-        <div class="ac-icon" style="background:rgba(255,212,71,.15);font-size:26px">📅</div>
-        <div class="ac-title">Calendar Sync</div>
-        <div class="ac-desc">Your bookings automatically populate your operations calendar. Click any date to see arrivals, departures, and tasks in one view.</div>
-        <div class="ac-badge">🔄 Always in sync</div>
-      </div>
-      <div class="auto-card reveal delay-1">
-        <div class="ac-icon" style="background:#F5F3FF;font-size:26px">🤖</div>
-        <div class="ac-title">AI Operations (Coming Soon)</div>
-        <div class="ac-desc">Auto-schedule cleans, predict maintenance needs, and get intelligent suggestions based on your booking patterns.</div>
-        <div class="ac-badge" style="background:rgba(139,92,246,.1);color:#8B5CF6">🔮 Coming Q3 2026</div>
-      </div>
-      <div class="auto-card reveal delay-2">
-        <div class="ac-icon" style="background:#FFF4CC;font-size:26px">💰</div>
-        <div class="ac-title">Revenue Intelligence</div>
-        <div class="ac-desc">Track revenue per property, per month. Expense proration across multiple properties. Know your margins at a glance.</div>
-        <div class="ac-badge">📊 Financial clarity</div>
-      </div>
-      <div class="auto-card reveal delay-3">
-        <div class="ac-icon" style="background:#F0FDF4;font-size:26px">🏡</div>
-        <div class="ac-title">Multi-Property Hub</div>
-        <div class="ac-desc">Manage unlimited properties under one account. Switch between properties or get a unified overview — your choice.</div>
-        <div class="ac-badge">🔓 No limits, ever</div>
+      <div class="feat-card reveal delay-3">
+        <div class="fc-icon" style="background:#e0f2f1">📱</div>
+        <div class="fc-title" data-en="Mobile First" data-fr="Mobile d'abord" data-pt="Mobile first">Mobile First</div>
+        <div class="fc-desc" data-en="Works on any phone, no app to install. Check a booking, assign a cleaning — anywhere." data-fr="Fonctionne sur n'importe quel téléphone, sans installation. Vérifiez une réservation n'importe où." data-pt="Funciona em qualquer telemóvel, sem instalar nada. Verifique uma reserva onde estiver.">Works on any phone, no app to install. Check a booking, assign a cleaning — anywhere.</div>
       </div>
     </div>
   </div>
@@ -1415,41 +747,94 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
   <div class="hero-bg-shape s1"></div>
   <div class="hero-bg-shape s2"></div>
   <div class="container pricing-inner">
-    <div class="section-head">
-      <div class="tag tag--white reveal"><span class="tag-dot"></span>Pricing</div>
-      <h2 class="section-title reveal delay-1" style="color:#fff">Powerful operations software.<br>Free forever.</h2>
-      <p class="section-sub reveal delay-2" style="color:rgba(255,255,255,.5)">No hidden fees. No subscription. No credit card. Just powerful hospitality operations tools, available to everyone.</p>
+    <div class="section-head reveal">
+      <div class="tag tag--white"><span class="tag-dot"></span><span data-en="Pricing" data-fr="Tarifs" data-pt="Preços">Pricing</span></div>
+      <h2 class="section-title" style="margin-top:16px;color:#fff" data-en="Simple. Free." data-fr="Simple. Gratuit." data-pt="Simples. Gratuito.">Simple. Free.</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.55)" data-en="All features, all properties, no credit card." data-fr="Toutes les fonctionnalités, toutes les propriétés, sans carte bancaire." data-pt="Todas as funcionalidades, todas as propriedades, sem cartão de crédito.">All features, all properties, no credit card.</p>
     </div>
-    <div class="pricing-card reveal delay-1">
+    <div class="pricing-card">
       <div class="pricing-top">
         <div>
-          <div class="pricing-label">The SummerFlows Plan</div>
-          <div class="pricing-name">Everything. Free.</div>
+          <div class="pricing-label" data-en="Always free" data-fr="Toujours gratuit" data-pt="Sempre gratuito">Always free</div>
+          <div class="pricing-name" data-en="SummerFlow" data-fr="SummerFlow" data-pt="SummerFlow">SummerFlow</div>
         </div>
         <div class="pricing-price">
           <div class="pricing-num"><sup>€</sup>0</div>
-          <div class="pricing-forever">Free forever ☀️</div>
+          <div class="pricing-forever" data-en="Free forever" data-fr="Gratuit pour toujours" data-pt="Gratuito para sempre">Free forever</div>
         </div>
       </div>
       <div class="pricing-features">
-        <div class="pf-item"><div class="pf-check">✓</div>Unlimited properties</div>
-        <div class="pf-item"><div class="pf-check">✓</div>Unlimited bookings</div>
-        <div class="pf-item"><div class="pf-check">✓</div>Unlimited team members</div>
-        <div class="pf-item"><div class="pf-check">✓</div>Full calendar management</div>
-        <div class="pf-item"><div class="pf-check">✓</div>Cleaning operations</div>
-        <div class="pf-item"><div class="pf-check">✓</div>Payment tracking</div>
-        <div class="pf-item"><div class="pf-check">✓</div>WhatsApp integration</div>
-        <div class="pf-item"><div class="pf-check">✓</div>PDF import & export</div>
-        <div class="pf-item"><div class="pf-check">✓</div>Expense management</div>
-        <div class="pf-item"><div class="pf-check">✓</div>No contracts. Ever.</div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Unlimited properties" data-fr="Propriétés illimitées" data-pt="Propriedades ilimitadas">Unlimited properties</span></div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Unlimited bookings" data-fr="Réservations illimitées" data-pt="Reservas ilimitadas">Unlimited bookings</span></div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Cleaning management" data-fr="Gestion du ménage" data-pt="Gestão de limpeza">Cleaning management</span></div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Direct booking tracking" data-fr="Suivi des réservations directes" data-pt="Rastreamento de reservas diretas">Direct booking tracking</span></div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Financial overview" data-fr="Vue financière" data-pt="Visão financeira">Financial overview</span></div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Multi-property dashboard" data-fr="Tableau de bord multi-propriété" data-pt="Painel multi-propriedade">Multi-property dashboard</span></div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Team access" data-fr="Accès équipe" data-pt="Acesso da equipa">Team access</span></div>
+        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Mobile-friendly" data-fr="Compatible mobile" data-pt="Compatível com mobile">Mobile-friendly</span></div>
       </div>
       <div class="pricing-cta">
-        <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg">
-          Start Free Now →
-        </a>
-        <div class="pricing-no-cc">
-          No credit card required
-          <span>Cancel anytime · No lock-in</span>
+        <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Start Free Now →" data-fr="Commencer gratuitement →" data-pt="Começar gratuitamente →">Start Free Now →</a>
+        <div class="pricing-no-cc" data-en="No credit card · No time limit · No catch." data-fr="Sans carte bancaire · Sans limite de temps · Sans conditions." data-pt="Sem cartão · Sem limite de tempo · Sem surpresas.">No credit card · No time limit · No catch.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag"><span class="tag-dot"></span><span data-en="Questions" data-fr="Questions" data-pt="Perguntas">Questions</span></div>
+      <h2 class="section-title" style="margin-top:16px" data-en="Frequently asked." data-fr="Questions fréquentes." data-pt="Perguntas frequentes.">Frequently asked.</h2>
+    </div>
+    <div class="faq-cols">
+      <!-- Column 1 -->
+      <div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Is SummerFlow really free?" data-fr="SummerFlow est-il vraiment gratuit ?" data-pt="O SummerFlow é mesmo gratuito?">Is SummerFlow really free?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner" data-en="Yes — fully free with no time limit. All features are included at no cost." data-fr="Oui — entièrement gratuit sans limite de temps. Toutes les fonctionnalités sont incluses." data-pt="Sim — completamente gratuito sem limite de tempo. Todas as funcionalidades estão incluídas.">Yes — fully free with no time limit. All features are included at no cost.</div></div>
+        </div>
+        <div class="faq-item" style="margin-top:12px">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Do I need to install an app?" data-fr="Dois-je installer une application ?" data-pt="Preciso de instalar uma aplicação?">Do I need to install an app?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner" data-en="No. SummerFlow runs in your browser on any device — phone, tablet, or desktop." data-fr="Non. SummerFlow fonctionne dans votre navigateur sur n'importe quel appareil." data-pt="Não. O SummerFlow funciona no seu navegador em qualquer dispositivo.">No. SummerFlow runs in your browser on any device — phone, tablet, or desktop.</div></div>
+        </div>
+        <div class="faq-item" style="margin-top:12px">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Can I manage several properties?" data-fr="Puis-je gérer plusieurs propriétés ?" data-pt="Posso gerir várias propriedades?">Can I manage several properties?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner" data-en="Yes — unlimited properties on one account, each with its own calendar and financials." data-fr="Oui — propriétés illimitées dans un seul compte, chacune avec son propre calendrier et ses finances." data-pt="Sim — propriedades ilimitadas numa única conta, cada uma com o seu próprio calendário e finanças.">Yes — unlimited properties on one account, each with its own calendar and financials.</div></div>
+        </div>
+      </div>
+      <!-- Column 2 -->
+      <div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Does it connect to Airbnb automatically?" data-fr="Se connecte-t-il automatiquement à Airbnb ?" data-pt="Liga automaticamente ao Airbnb?">Does it connect to Airbnb automatically?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner" data-en="Currently you log reservations manually from any channel. Direct API sync is on the roadmap." data-fr="Actuellement vous saisissez les réservations manuellement depuis n'importe quel canal. La synchronisation API directe est sur la feuille de route." data-pt="Atualmente regista as reservas manualmente a partir de qualquer canal. A sincronização direta por API está no roadmap.">Currently you log reservations manually from any channel. Direct API sync is on the roadmap.</div></div>
+        </div>
+        <div class="faq-item" style="margin-top:12px">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="What does 'paid / unpaid' mean for direct bookings?" data-fr="Que signifie 'payé / non payé' pour les réservations directes ?" data-pt="O que significa 'pago / não pago' para reservas diretas?">What does 'paid / unpaid' mean for direct bookings?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner" data-en="It tracks whether the guest has paid you, and whether you have paid your cleaner for that stay — two separate statuses." data-fr="Cela indique si le voyageur vous a payé, et si vous avez payé votre agent de ménage pour ce séjour — deux statuts séparés." data-pt="Indica se o hóspede lhe pagou, e se pagou ao seu limpador para essa estadia — dois estados separados.">It tracks whether the guest has paid you, and whether you have paid your cleaner for that stay — two separate statuses.</div></div>
+        </div>
+        <div class="faq-item" style="margin-top:12px">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Can my cleaning team use it too?" data-fr="Mon équipe de ménage peut-elle aussi l'utiliser ?" data-pt="A minha equipa de limpeza também pode usar?">Can my cleaning team use it too?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner" data-en="Yes — you can add team members who see their assigned cleanings and mark them done from their phone." data-fr="Oui — vous pouvez ajouter des membres d'équipe qui voient leurs ménages assignés et les marquent comme terminés depuis leur téléphone." data-pt="Sim — pode adicionar membros da equipa que veem as suas limpezas atribuídas e as marcam como concluídas a partir do telemóvel.">Yes — you can add team members who see their assigned cleanings and mark them done from their phone.</div></div>
         </div>
       </div>
     </div>
@@ -1458,29 +843,18 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
 
 <!-- ═══ FINAL CTA ═══ -->
 <section class="final-cta">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="tag reveal" style="margin:0 auto 20px"><span class="tag-dot"></span>Get Started Today</div>
-      <h2 class="cta-title reveal delay-1">
-        Run your hospitality business without operational chaos.
-      </h2>
-      <p class="cta-sub reveal delay-2">
-        Join hundreds of property managers and Airbnb hosts who've simplified their operations with SummerFlows.
-      </p>
-      <div class="cta-btns reveal delay-3">
-        <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg">
-          Start Free — No credit card
-        </a>
-        <a href="mailto:christopher@permanentsummer.co" class="btn btn-outline btn-lg">
-          Contact Us
-        </a>
-      </div>
-      <div class="cta-trust reveal delay-4">
-        <div class="cta-trust-item"><div class="cti-dot"></div>Free forever</div>
-        <div class="cta-trust-item"><div class="cti-dot"></div>No setup required</div>
-        <div class="cta-trust-item"><div class="cti-dot"></div>Unlimited properties</div>
-        <div class="cta-trust-item"><div class="cti-dot"></div>No credit card needed</div>
-      </div>
+  <div class="container cta-inner">
+    <div class="tag" style="margin:0 auto 24px"><span class="tag-dot"></span><span data-en="Get started today" data-fr="Commencez aujourd'hui" data-pt="Comece hoje">Get started today</span></div>
+    <h2 class="cta-title" data-en="One place to run your rental." data-fr="Tout pour gérer votre location." data-pt="Tudo para gerir o seu alojamento.">One place to run your rental.</h2>
+    <p class="cta-sub" data-en="Reservations, direct bookings, cleaning and your real numbers — free, forever." data-fr="Réservations, réservations directes, ménage et vos vrais chiffres — gratuit, pour toujours." data-pt="Reservas, reservas diretas, limpeza e os seus números reais — gratuito, para sempre.">Reservations, direct bookings, cleaning and your real numbers — free, forever.</p>
+    <div class="cta-btns">
+      <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Start Free — No card needed →" data-fr="Commencer gratuitement — Sans carte →" data-pt="Começar gratuitamente — Sem cartão →">Start Free — No card needed →</a>
+      <a href="https://summerflow.permanentsummer.co" class="btn btn-outline btn-lg" data-en="Log in" data-fr="Se connecter" data-pt="Iniciar sessão">Log in</a>
+    </div>
+    <div class="cta-trust">
+      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="Free forever" data-fr="Gratuit pour toujours" data-pt="Gratuito para sempre">Free forever</span></div>
+      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="No credit card" data-fr="Sans carte bancaire" data-pt="Sem cartão de crédito">No credit card</span></div>
+      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="Unlimited properties" data-fr="Propriétés illimitées" data-pt="Propriedades ilimitadas">Unlimited properties</span></div>
     </div>
   </div>
 </section>
@@ -1492,131 +866,80 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
       <div class="footer-brand">
         <div class="fl-logo">
           <div class="fl-logo-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0A2540" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-              <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
-          <span class="fl-logo-name">SummerFlows</span>
+          <span class="fl-logo-name">SummerFlow</span>
         </div>
-        <p>Hospitality operations software for Airbnb hosts, property managers, and hospitality teams. Built in the Algarve, Portugal.</p>
-        <div class="footer-socials">
-          <a href="#" class="social-link" aria-label="Twitter">
-            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="#" class="social-link" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://instagram.com" class="social-link" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-        </div>
+        <p data-en="One place to run your rental. Reservations, direct bookings, cleaning and your real numbers." data-fr="Tout pour gérer votre location. Réservations, réservations directes, ménage et vos vrais chiffres." data-pt="Tudo para gerir o seu alojamento. Reservas, reservas diretas, limpeza e os seus números reais.">One place to run your rental. Reservations, direct bookings, cleaning and your real numbers.</p>
       </div>
       <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#features">Features</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#mobile">Mobile App</a>
-        <a href="#pricing">Pricing</a>
-        <a href="https://summerflow.permanentsummer.co">Dashboard</a>
+        <h4 data-en="Product" data-fr="Produit" data-pt="Produto">Product</h4>
+        <a href="#features" data-en="Features" data-fr="Fonctionnalités" data-pt="Funcionalidades">Features</a>
+        <a href="#pricing" data-en="Pricing" data-fr="Tarifs" data-pt="Preços">Pricing</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div class="footer-col">
-        <h4>Solutions</h4>
-        <a href="#">Airbnb Hosts</a>
-        <a href="#">Property Managers</a>
-        <a href="#">Boutique Hotels</a>
-        <a href="#">Cleaning Teams</a>
-        <a href="#">Holiday Rentals</a>
+        <h4 data-en="Use cases" data-fr="Cas d'usage" data-pt="Casos de uso">Use cases</h4>
+        <a href="#" data-en="Airbnb hosts" data-fr="Hôtes Airbnb" data-pt="Anfitriões Airbnb">Airbnb hosts</a>
+        <a href="#" data-en="Property managers" data-fr="Gestionnaires" data-pt="Gestores de imóveis">Property managers</a>
+        <a href="#" data-en="Holiday villas" data-fr="Villas de vacances" data-pt="Vilas de férias">Holiday villas</a>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#">About Permanent Summer</a>
-        <a href="mailto:christopher@permanentsummer.co">Contact</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="https://permanentsummer.co">permanentsummer.co</a>
+        <h4 data-en="Links" data-fr="Liens" data-pt="Links">Links</h4>
+        <a href="https://summerflow.permanentsummer.co" data-en="Open app" data-fr="Ouvrir l'app" data-pt="Abrir app">Open app</a>
+        <a href="https://permanentsummer.co" data-en="Permanent Summer" data-fr="Permanent Summer" data-pt="Permanent Summer">Permanent Summer</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Permanent Summer Lda. All rights reserved. Made with ☀️ in the Algarve, Portugal.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Cookies</a>
-      </div>
+      <p>© 2026 Permanent Summer. <span data-en="All rights reserved." data-fr="Tous droits réservés." data-pt="Todos os direitos reservados.">All rights reserved.</span></p>
+      <p style="color:rgba(255,255,255,.2);font-size:12px;font-family:'Inter',sans-serif">summerflows.permanentsummer.co</p>
     </div>
   </div>
 </footer>
 
 <script>
-// ── NAVBAR SCROLL ──
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-}, { passive: true });
+// ─── SCROLL ANIMATIONS ───
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
 
-// ── MOBILE NAV ──
+// ─── NAVBAR SCROLL ───
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ─── MOBILE NAV ───
 function toggleMobileNav() {
-  const nav = document.getElementById('mobileNav');
-  nav.classList.toggle('open');
-  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  document.getElementById('mobileNav').classList.toggle('open');
 }
 
-// ── SCROLL REVEAL ──
-const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+// ─── FAQ ───
+function toggleFaq(q) {
+  const item = q.parentElement;
+  const wasOpen = item.classList.contains('open');
+  item.classList.toggle('open', !wasOpen);
+}
 
-revealElements.forEach(el => observer.observe(el));
+// ─── LANGUAGE ───
+const LANGS = {
+  en: {}, fr: {}, pt: {}
+};
 
-// ── SMOOTH SCROLL FOR NAV LINKS ──
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+function setLang(lang) {
+  try { localStorage.setItem('sf_lang', lang); } catch(e){}
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang);
   });
-});
+}
 
-// ── STAGGER ANIMATION FOR GRID ITEMS ──
-const gridObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const items = entry.target.querySelectorAll('.problem-card, .auto-card, .review-card');
-      items.forEach((item, i) => {
-        setTimeout(() => {
-          item.style.opacity = '1';
-          item.style.transform = 'translateY(0)';
-        }, i * 80);
-      });
-      gridObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.problem-grid, .auto-grid, .reviews-row').forEach(grid => {
-  const items = grid.querySelectorAll('.problem-card, .auto-card, .review-card');
-  items.forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = 'opacity .5s ease, transform .5s ease';
-  });
-  gridObserver.observe(grid);
-});
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem('sf_lang') || 'en'; } catch(e){}
+  if (!['en','fr','pt'].includes(saved)) saved = 'en';
+  setLang(saved);
+})();
 </script>
 </body>
 </html>
