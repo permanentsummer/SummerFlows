@@ -256,21 +256,39 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .pricing .hero-bg-shape.s1{opacity:.3}
 .pricing .hero-bg-shape.s2{opacity:.2}
 .pricing-inner{position:relative;z-index:2}
-.pricing-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:24px;padding:52px;max-width:800px;margin:56px auto 0;backdrop-filter:blur(10px);position:relative;overflow:hidden;transition:all .35s}
-.pricing-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,102,63,.08),transparent 50%);pointer-events:none}
-.pricing-card:hover{transform:translateY(-4px);box-shadow:0 40px 80px rgba(0,0,0,.3);border-color:rgba(184,102,63,.35)}
-.pricing-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:40px}
-.pricing-label{font-size:12px;font-weight:700;color:#f0b896;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
-.pricing-name{font-size:36px;font-weight:900;color:#fff;letter-spacing:-.5px}
-.pricing-price{text-align:right}
-.pricing-num{font-size:52px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px}
-.pricing-num sup{font-size:22px;vertical-align:super;font-weight:700}
-.pricing-forever{font-size:13px;color:#f0b896;font-weight:700;margin-top:4px}
-.pricing-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}
-.pf-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.8)}
-.pf-check{width:20px;height:20px;background:rgba(184,102,63,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px}
-.pricing-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.pricing-no-cc{font-size:12px;color:rgba(255,255,255,.35);font-weight:500;font-family:'Inter',sans-serif}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:56px auto 0}
+.pricing-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:24px;padding:40px;backdrop-filter:blur(10px);position:relative;overflow:hidden;transition:all .35s;display:flex;flex-direction:column}
+.pricing-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,102,63,.06),transparent 50%);pointer-events:none}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 40px 80px rgba(0,0,0,.3);border-color:rgba(184,102,63,.3)}
+.pricing-card.featured{border-color:rgba(184,102,63,.5);background:rgba(184,102,63,.08)}
+.pricing-card.featured::before{background:linear-gradient(135deg,rgba(184,102,63,.12),transparent 50%)}
+.pricing-badge{position:absolute;top:20px;right:20px;background:var(--terra);color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.4px;text-transform:uppercase}
+.pricing-top{margin-bottom:28px}
+.pricing-label{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px}
+.pricing-name{font-size:26px;font-weight:900;color:#fff;letter-spacing:-.4px;margin-bottom:16px}
+.pricing-price-row{display:flex;align-items:baseline;gap:4px}
+.pricing-num{font-size:48px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px}
+.pricing-num sup{font-size:20px;vertical-align:super;font-weight:700}
+.pricing-period{font-size:14px;color:rgba(255,255,255,.4);font-weight:500}
+.pricing-sub{font-size:12px;color:#f0b896;font-weight:600;margin-top:6px}
+.pricing-divider{height:1px;background:rgba(255,255,255,.08);margin:24px 0}
+.pricing-features{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1}
+.pf-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;font-weight:600;color:rgba(255,255,255,.75)}
+.pf-item.muted{color:rgba(255,255,255,.3)}
+.pf-check{width:18px;height:18px;background:rgba(184,102,63,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;margin-top:1px}
+.pf-check.green{background:rgba(52,211,153,.2);color:#34D399}
+.pf-x{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:rgba(255,255,255,.2);background:rgba(255,255,255,.05);margin-top:1px}
+.pricing-cta{margin-top:auto}
+.pricing-no-cc{font-size:11px;color:rgba(255,255,255,.3);font-weight:500;font-family:'Inter',sans-serif;margin-top:10px;text-align:center}
+.pricing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:0}
+.pt-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.5)}
+.pt-label.active{color:#fff}
+.pt-switch{width:44px;height:24px;background:rgba(255,255,255,.15);border-radius:999px;cursor:pointer;position:relative;transition:background .25s;border:none}
+.pt-switch.on{background:var(--terra)}
+.pt-knob{width:18px;height:18px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:left .25s}
+.pt-switch.on .pt-knob{left:23px}
+.pt-save{background:rgba(52,211,153,.15);color:#34D399;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px}
+@media(max-width:700px){.pricing-grid{grid-template-columns:1fr}}
 
 /* ═══ FAQ ═══ */
 .faq{padding:100px 0;background:var(--bg)}
@@ -285,6 +303,10 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.25,.46,.45,.94)}
 .faq-item.open .faq-a{max-height:300px}
 .faq-a-inner{padding:0 24px 20px;font-size:14px;color:var(--text-muted);line-height:1.7;font-family:'Inter',sans-serif}
+
+/* ═══ BOOK A CALL ═══ */
+.book-call{padding:100px 0;background:#fff}
+.calendly-wrap{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);border:1.5px solid var(--border);max-width:900px;margin:0 auto}
 
 /* ═══ FINAL CTA ═══ */
 .final-cta{padding:100px 0;background:linear-gradient(135deg,#fff 0%,var(--terra-light) 100%);text-align:center;position:relative;overflow:hidden}
@@ -421,21 +443,21 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
         </h1>
         <p class="hero-sub" data-en="Reservations, direct bookings, cleaning and your real numbers — all in one app built for rental owners." data-fr="Réservations, réservations directes, ménage et vos vrais chiffres — tout dans une app faite pour les propriétaires." data-pt="Reservas, reservas diretas, limpeza e os seus números reais — tudo numa app feita para proprietários.">Reservations, direct bookings, cleaning and your real numbers — all in one app built for rental owners.</p>
         <div class="hero-ctas">
-          <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Start Free — No card needed" data-fr="Commencer gratuitement" data-pt="Começar gratuitamente">Start Free — No card needed</a>
-          <a href="#how" class="btn btn-ghost btn-lg" data-en="See how it works" data-fr="Voir comment ça marche" data-pt="Ver como funciona">See how it works</a>
+          <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Try for free →" data-fr="Essayer gratuitement →" data-pt="Experimentar grátis →">Try for free →</a>
+          <a href="#pricing" class="btn btn-ghost btn-lg" data-en="See pricing" data-fr="Voir les tarifs" data-pt="Ver preços">See pricing</a>
         </div>
         <div class="hero-stats">
           <div>
-            <div class="hero-stat-num">∞</div>
-            <div class="hero-stat-label" data-en="Properties" data-fr="Propriétés" data-pt="Propriedades">Properties</div>
+            <div class="hero-stat-num">2</div>
+            <div class="hero-stat-label" data-en="Free properties" data-fr="Propriétés gratuites" data-pt="Propriedades grátis">Free properties</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">€7</div>
+            <div class="hero-stat-label" data-en="Pro / month" data-fr="Pro / mois" data-pt="Pro / mês">Pro / month</div>
           </div>
           <div>
             <div class="hero-stat-num">∞</div>
-            <div class="hero-stat-label" data-en="Bookings" data-fr="Réservations" data-pt="Reservas">Bookings</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">Free</div>
-            <div class="hero-stat-label" data-en="Forever" data-fr="Pour toujours" data-pt="Para sempre">Forever</div>
+            <div class="hero-stat-label" data-en="Bookings included" data-fr="Réservations incluses" data-pt="Reservas incluídas">Bookings included</div>
           </div>
         </div>
       </div>
@@ -749,34 +771,85 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
   <div class="container pricing-inner">
     <div class="section-head reveal">
       <div class="tag tag--white"><span class="tag-dot"></span><span data-en="Pricing" data-fr="Tarifs" data-pt="Preços">Pricing</span></div>
-      <h2 class="section-title" style="margin-top:16px;color:#fff" data-en="Simple. Free." data-fr="Simple. Gratuit." data-pt="Simples. Gratuito.">Simple. Free.</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.55)" data-en="All features, all properties, no credit card." data-fr="Toutes les fonctionnalités, toutes les propriétés, sans carte bancaire." data-pt="Todas as funcionalidades, todas as propriedades, sem cartão de crédito.">All features, all properties, no credit card.</p>
+      <h2 class="section-title" style="margin-top:16px;color:#fff" data-en="Free to start. Simple to grow." data-fr="Gratuit pour démarrer. Simple pour évoluer." data-pt="Grátis para começar. Simples para crescer.">Free to start. Simple to grow.</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.55)" data-en="Start with 2 properties at no cost. Upgrade to Pro when you're ready for more." data-fr="Démarrez avec 2 propriétés sans frais. Passez à Pro quand vous en avez besoin." data-pt="Comece com 2 propriedades sem custo. Actualize para Pro quando precisar.">Start with 2 properties at no cost. Upgrade to Pro when you're ready for more.</p>
+      <!-- billing toggle -->
+      <div class="pricing-toggle" style="margin-top:24px">
+        <span class="pt-label active" id="pt-monthly" data-en="Monthly" data-fr="Mensuel" data-pt="Mensal">Monthly</span>
+        <button class="pt-switch" id="pt-switch" onclick="toggleBilling()"><div class="pt-knob"></div></button>
+        <span class="pt-label" id="pt-yearly" data-en="Yearly" data-fr="Annuel" data-pt="Anual">Yearly</span>
+        <span class="pt-save" data-en="Save 30%" data-fr="−30%" data-pt="Poupe 30%">Save 30%</span>
+      </div>
     </div>
-    <div class="pricing-card">
-      <div class="pricing-top">
-        <div>
-          <div class="pricing-label" data-en="Always free" data-fr="Toujours gratuit" data-pt="Sempre gratuito">Always free</div>
-          <div class="pricing-name" data-en="SummerFlow" data-fr="SummerFlow" data-pt="SummerFlow">SummerFlow</div>
+    <div class="pricing-grid">
+      <!-- FREE -->
+      <div class="pricing-card reveal delay-1">
+        <div class="pricing-top">
+          <div class="pricing-label" data-en="Free plan" data-fr="Plan gratuit" data-pt="Plano gratuito">Free plan</div>
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price-row">
+            <div class="pricing-num"><sup>€</sup>0</div>
+          </div>
+          <div class="pricing-sub" data-en="Up to 2 properties, no card needed" data-fr="Jusqu'à 2 propriétés, sans carte" data-pt="Até 2 propriedades, sem cartão">Up to 2 properties, no card needed</div>
         </div>
-        <div class="pricing-price">
-          <div class="pricing-num"><sup>€</sup>0</div>
-          <div class="pricing-forever" data-en="Free forever" data-fr="Gratuit pour toujours" data-pt="Gratuito para sempre">Free forever</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pf-item"><div class="pf-check">✓</div><span data-en="Up to 2 properties" data-fr="Jusqu'à 2 propriétés" data-pt="Até 2 propriedades">Up to 2 properties</span></div>
+          <div class="pf-item"><div class="pf-check">✓</div><span data-en="Unlimited bookings" data-fr="Réservations illimitées" data-pt="Reservas ilimitadas">Unlimited bookings</span></div>
+          <div class="pf-item"><div class="pf-check">✓</div><span data-en="Cleaning management" data-fr="Gestion du ménage" data-pt="Gestão de limpeza">Cleaning management</span></div>
+          <div class="pf-item"><div class="pf-check">✓</div><span data-en="Direct booking tracking" data-fr="Suivi des réservations directes" data-pt="Rastreamento de reservas diretas">Direct booking tracking</span></div>
+          <div class="pf-item"><div class="pf-check">✓</div><span data-en="Financial overview" data-fr="Vue financière" data-pt="Visão financeira">Financial overview</span></div>
+          <div class="pf-item"><div class="pf-check">✓</div><span data-en="1 cleaner account" data-fr="1 compte agent de ménage" data-pt="1 conta de limpador">1 cleaner account</span></div>
+          <div class="pf-item pf-item--muted"><div class="pf-x">✕</div><span style="color:rgba(255,255,255,.3)" data-en="In-person onboarding" data-fr="Onboarding en personne" data-pt="Onboarding presencial">In-person onboarding</span></div>
+          <div class="pf-item pf-item--muted"><div class="pf-x">✕</div><span style="color:rgba(255,255,255,.3)" data-en="Priority support" data-fr="Support prioritaire" data-pt="Suporte prioritário">Priority support</span></div>
+        </div>
+        <div class="pricing-cta">
+          <a href="https://summerflow.permanentsummer.co" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center" data-en="Start Free →" data-fr="Commencer gratuitement →" data-pt="Começar gratuitamente →">Start Free →</a>
+          <div class="pricing-no-cc" data-en="No credit card required." data-fr="Sans carte bancaire requise." data-pt="Sem cartão de crédito necessário.">No credit card required.</div>
         </div>
       </div>
-      <div class="pricing-features">
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Unlimited properties" data-fr="Propriétés illimitées" data-pt="Propriedades ilimitadas">Unlimited properties</span></div>
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Unlimited bookings" data-fr="Réservations illimitées" data-pt="Reservas ilimitadas">Unlimited bookings</span></div>
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Cleaning management" data-fr="Gestion du ménage" data-pt="Gestão de limpeza">Cleaning management</span></div>
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Direct booking tracking" data-fr="Suivi des réservations directes" data-pt="Rastreamento de reservas diretas">Direct booking tracking</span></div>
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Financial overview" data-fr="Vue financière" data-pt="Visão financeira">Financial overview</span></div>
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Multi-property dashboard" data-fr="Tableau de bord multi-propriété" data-pt="Painel multi-propriedade">Multi-property dashboard</span></div>
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Team access" data-fr="Accès équipe" data-pt="Acesso da equipa">Team access</span></div>
-        <div class="pf-item"><div class="pf-check">✓</div><span data-en="Mobile-friendly" data-fr="Compatible mobile" data-pt="Compatível com mobile">Mobile-friendly</span></div>
+      <!-- PRO -->
+      <div class="pricing-card featured reveal delay-2">
+        <div class="pricing-badge" data-en="Most popular" data-fr="Le plus populaire" data-pt="Mais popular">Most popular</div>
+        <div class="pricing-top">
+          <div class="pricing-label" data-en="For growing hosts" data-fr="Pour les hôtes en croissance" data-pt="Para anfitriões em crescimento">For growing hosts</div>
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price-row">
+            <div class="pricing-num" id="pro-price"><sup>€</sup>7</div>
+            <div class="pricing-period" id="pro-period" data-en="/ month" data-fr="/ mois" data-pt="/ mês">/ month</div>
+          </div>
+          <div class="pricing-sub" id="pro-sub" data-en="Billed monthly" data-fr="Facturé mensuellement" data-pt="Faturado mensalmente">Billed monthly</div>
+        </div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="Unlimited properties" data-fr="Propriétés illimitées" data-pt="Propriedades ilimitadas">Unlimited properties</span></div>
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="Unlimited bookings" data-fr="Réservations illimitées" data-pt="Reservas ilimitadas">Unlimited bookings</span></div>
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="Unlimited cleaner accounts" data-fr="Comptes agents de ménage illimités" data-pt="Contas de limpador ilimitadas">Unlimited cleaner accounts</span></div>
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="Full financial dashboard" data-fr="Tableau financier complet" data-pt="Painel financeiro completo">Full financial dashboard</span></div>
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="Export to PDF / CSV" data-fr="Export PDF / CSV" data-pt="Exportar para PDF / CSV">Export to PDF / CSV</span></div>
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="In-person onboarding session" data-fr="Session d'onboarding en personne" data-pt="Sessão de onboarding presencial">In-person onboarding session</span></div>
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="Priority support (WhatsApp)" data-fr="Support prioritaire (WhatsApp)" data-pt="Suporte prioritário (WhatsApp)">Priority support (WhatsApp)</span></div>
+          <div class="pf-item"><div class="pf-check green">✓</div><span data-en="Early access to new features" data-fr="Accès anticipé aux nouvelles fonctions" data-pt="Acesso antecipado a novas funcionalidades">Early access to new features</span></div>
+        </div>
+        <div class="pricing-cta">
+          <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" style="width:100%;justify-content:center" data-en="Start Pro →" data-fr="Commencer Pro →" data-pt="Começar Pro →">Start Pro →</a>
+          <div class="pricing-no-cc" data-en="Cancel anytime. No hidden fees." data-fr="Annulez à tout moment. Aucun frais caché." data-pt="Cancele quando quiser. Sem taxas ocultas.">Cancel anytime. No hidden fees.</div>
+        </div>
       </div>
-      <div class="pricing-cta">
-        <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Start Free Now →" data-fr="Commencer gratuitement →" data-pt="Começar gratuitamente →">Start Free Now →</a>
-        <div class="pricing-no-cc" data-en="No credit card · No time limit · No catch." data-fr="Sans carte bancaire · Sans limite de temps · Sans conditions." data-pt="Sem cartão · Sem limite de tempo · Sem surpresas.">No credit card · No time limit · No catch.</div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOOK A CALL ═══ -->
+<section class="book-call" id="book">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag"><span class="tag-dot"></span><span data-en="Talk to a human" data-fr="Parler à un humain" data-pt="Falar com alguém">Talk to a human</span></div>
+      <h2 class="section-title" style="margin-top:16px" data-en="Book a free 30-min call." data-fr="Réservez un appel gratuit de 30 min." data-pt="Agende uma chamada gratuita de 30 min.">Book a free 30-min call.</h2>
+      <p class="section-sub" data-en="Questions about SummerFlow? Want a walkthrough or help getting set up? Pick a time that works." data-fr="Des questions sur SummerFlow ? Vous voulez une démo ou de l'aide pour démarrer ? Choisissez un créneau." data-pt="Dúvidas sobre o SummerFlow? Quer uma demonstração ou ajuda para começar? Escolha um horário.">Questions about SummerFlow? Want a walkthrough or help getting set up? Pick a time that works.</p>
+    </div>
+    <div class="calendly-wrap reveal">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/permanentsummer/30min?primary_color=b8663f&text_color=1b2a41&background_color=f8f1ea" style="min-width:320px;height:700px;border-radius:20px;overflow:hidden"></div>
     </div>
   </div>
 </section>
@@ -793,10 +866,10 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
       <div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            <span data-en="Is SummerFlow really free?" data-fr="SummerFlow est-il vraiment gratuit ?" data-pt="O SummerFlow é mesmo gratuito?">Is SummerFlow really free?</span>
+            <span data-en="Is there a free plan?" data-fr="Y a-t-il un plan gratuit ?" data-pt="Existe um plano gratuito?">Is there a free plan?</span>
             <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
           </div>
-          <div class="faq-a"><div class="faq-a-inner" data-en="Yes — fully free with no time limit. All features are included at no cost." data-fr="Oui — entièrement gratuit sans limite de temps. Toutes les fonctionnalités sont incluses." data-pt="Sim — completamente gratuito sem limite de tempo. Todas as funcionalidades estão incluídas.">Yes — fully free with no time limit. All features are included at no cost.</div></div>
+          <div class="faq-a"><div class="faq-a-inner" data-en="Yes — the Starter plan is free for up to 2 properties, no credit card required. For more properties or premium features, Pro is €7/month." data-fr="Oui — le plan Starter est gratuit pour jusqu'à 2 propriétés, sans carte bancaire. Pour plus de propriétés ou des fonctions avancées, Pro est à 7€/mois." data-pt="Sim — o plano Starter é gratuito para até 2 propriedades, sem cartão. Para mais propriedades ou funcionalidades premium, o Pro é €7/mês.">Yes — the Starter plan is free for up to 2 properties, no credit card required. For more properties or premium features, Pro is €7/month.</div></div>
         </div>
         <div class="faq-item" style="margin-top:12px">
           <div class="faq-q" onclick="toggleFaq(this)">
@@ -846,15 +919,15 @@ footer{background:var(--navy-deep);padding:64px 0 32px}
   <div class="container cta-inner">
     <div class="tag" style="margin:0 auto 24px"><span class="tag-dot"></span><span data-en="Get started today" data-fr="Commencez aujourd'hui" data-pt="Comece hoje">Get started today</span></div>
     <h2 class="cta-title" data-en="One place to run your rental." data-fr="Tout pour gérer votre location." data-pt="Tudo para gerir o seu alojamento.">One place to run your rental.</h2>
-    <p class="cta-sub" data-en="Reservations, direct bookings, cleaning and your real numbers — free, forever." data-fr="Réservations, réservations directes, ménage et vos vrais chiffres — gratuit, pour toujours." data-pt="Reservas, reservas diretas, limpeza e os seus números reais — gratuito, para sempre.">Reservations, direct bookings, cleaning and your real numbers — free, forever.</p>
+    <p class="cta-sub" data-en="Start with 2 properties for free. Upgrade to Pro for €7/month when you need more." data-fr="Commencez avec 2 propriétés gratuitement. Passez à Pro pour 7€/mois quand vous en avez besoin." data-pt="Comece com 2 propriedades gratuitamente. Actualize para Pro por €7/mês quando precisar.">Start with 2 properties for free. Upgrade to Pro for €7/month when you need more.</p>
     <div class="cta-btns">
-      <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Start Free — No card needed →" data-fr="Commencer gratuitement — Sans carte →" data-pt="Começar gratuitamente — Sem cartão →">Start Free — No card needed →</a>
-      <a href="https://summerflow.permanentsummer.co" class="btn btn-outline btn-lg" data-en="Log in" data-fr="Se connecter" data-pt="Iniciar sessão">Log in</a>
+      <a href="https://summerflow.permanentsummer.co" class="btn btn-primary btn-lg" data-en="Try for free →" data-fr="Essayer gratuitement →" data-pt="Experimentar grátis →">Try for free →</a>
+      <a href="#pricing" class="btn btn-outline btn-lg" data-en="See pricing" data-fr="Voir les tarifs" data-pt="Ver preços">See pricing</a>
     </div>
     <div class="cta-trust">
-      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="Free forever" data-fr="Gratuit pour toujours" data-pt="Gratuito para sempre">Free forever</span></div>
-      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="No credit card" data-fr="Sans carte bancaire" data-pt="Sem cartão de crédito">No credit card</span></div>
-      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="Unlimited properties" data-fr="Propriétés illimitées" data-pt="Propriedades ilimitadas">Unlimited properties</span></div>
+      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="Free starter plan" data-fr="Plan de démarrage gratuit" data-pt="Plano inicial gratuito">Free starter plan</span></div>
+      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="No credit card to start" data-fr="Sans carte pour commencer" data-pt="Sem cartão para começar">No credit card to start</span></div>
+      <div class="cta-trust-item"><div class="cti-dot"></div><span data-en="Pro from €7/month" data-fr="Pro à partir de 7€/mois" data-pt="Pro a partir de €7/mês">Pro from €7/month</span></div>
     </div>
   </div>
 </section>
@@ -921,6 +994,31 @@ function toggleFaq(q) {
   item.classList.toggle('open', !wasOpen);
 }
 
+// ─── BILLING TOGGLE ───
+let isYearly = false;
+function toggleBilling() {
+  isYearly = !isYearly;
+  const sw = document.getElementById('pt-switch');
+  sw.classList.toggle('on', isYearly);
+  document.getElementById('pt-monthly').classList.toggle('active', !isYearly);
+  document.getElementById('pt-yearly').classList.toggle('active', isYearly);
+  const priceEl = document.getElementById('pro-price');
+  const periodEl = document.getElementById('pro-period');
+  const subEl = document.getElementById('pro-sub');
+  const lang = (function(){ try{ return localStorage.getItem('sf_lang')||'en'; }catch(e){ return 'en'; } })();
+  if (isYearly) {
+    priceEl.innerHTML = '<sup>€</sup>5';
+    periodEl.setAttribute('data-en','/ month'); periodEl.setAttribute('data-fr','/ mois'); periodEl.setAttribute('data-pt','/ mês');
+    subEl.setAttribute('data-en','Billed €59/year · Save 30%'); subEl.setAttribute('data-fr','Facturé 59€/an · Économisez 30%'); subEl.setAttribute('data-pt','Faturado €59/ano · Poupe 30%');
+  } else {
+    priceEl.innerHTML = '<sup>€</sup>7';
+    periodEl.setAttribute('data-en','/ month'); periodEl.setAttribute('data-fr','/ mois'); periodEl.setAttribute('data-pt','/ mês');
+    subEl.setAttribute('data-en','Billed monthly'); subEl.setAttribute('data-fr','Facturé mensuellement'); subEl.setAttribute('data-pt','Faturado mensalmente');
+  }
+  // re-apply lang to updated elements
+  [periodEl, subEl].forEach(el => { const v = el.getAttribute('data-'+lang); if(v) el.innerHTML = v; });
+}
+
 // ─── LANGUAGE ───
 const LANGS = {
   en: {}, fr: {}, pt: {}
@@ -940,6 +1038,25 @@ function setLang(lang) {
   if (!['en','fr','pt'].includes(saved)) saved = 'en';
   setLang(saved);
 })();
+</script>
+
+<!-- Calendly inline widget -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- Calendly badge widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script type="text/javascript">
+window.addEventListener('load', function() {
+  if (typeof Calendly !== 'undefined') {
+    Calendly.initBadgeWidget({
+      url: 'https://calendly.com/permanentsummer/30min?primary_color=b8663f',
+      text: 'Book a call',
+      color: '#b8663f',
+      textColor: '#ffffff',
+      branding: false
+    });
+  }
+});
 </script>
 </body>
 </html>
