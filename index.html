@@ -307,8 +307,7 @@ h1,h2,h3{line-height:1.15;letter-spacing:-.4px}
 /* ═══ BOOK A CALL ═══ */
 .book-call{padding:80px 0 60px;background:#fff;overflow-x:hidden;}
 .calendly-wrap{max-width:680px;margin:0 auto;overflow:hidden;height:460px;}
-.calendly-wrap .calendly-inline-widget{margin-top:-90px!important;width:100%!important;min-width:0!important;height:580px!important;}
-.calendly-wrap .calendly-inline-widget iframe{width:100%!important;min-width:0!important;}
+.calendly-wrap .calendly-inline-widget{margin-top:-90px;}
 
 /* ═══ FINAL CTA ═══ */
 .final-cta{padding:100px 0;background:linear-gradient(135deg,#fff 0%,var(--terra-light) 100%);text-align:center;position:relative;overflow:hidden}
@@ -1059,6 +1058,41 @@ window.addEventListener('load', function() {
     });
   }
 });
+
+// Force Calendly iframe to fit its container — Calendly injects inline width styles
+// that CSS !important cannot override; MutationObserver patches them after injection.
+(function() {
+  function fixCalendlySize() {
+    var wrap = document.querySelector('.calendly-wrap');
+    if (!wrap) return;
+    var wrapWidth = wrap.offsetWidth;
+    // Fix the inline-widget div itself
+    var widget = wrap.querySelector('.calendly-inline-widget');
+    if (widget) {
+      widget.style.setProperty('width', wrapWidth + 'px', 'important');
+      widget.style.setProperty('min-width', '0', 'important');
+    }
+    // Fix any iframes inside
+    var iframes = wrap.querySelectorAll('iframe');
+    iframes.forEach(function(f) {
+      f.style.setProperty('width', wrapWidth + 'px', 'important');
+      f.style.setProperty('min-width', '0', 'important');
+    });
+  }
+
+  // Watch for Calendly injecting the iframe
+  var observer = new MutationObserver(function() {
+    fixCalendlySize();
+  });
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+
+  // Also fix on resize
+  window.addEventListener('resize', fixCalendlySize);
+
+  // Initial pass after load
+  setTimeout(fixCalendlySize, 500);
+  setTimeout(fixCalendlySize, 1500);
+})();
 </script>
 </body>
 </html>
